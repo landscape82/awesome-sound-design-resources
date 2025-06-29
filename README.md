@@ -44,6 +44,9 @@
     - [🔮 Psychoacoustics \& Perception](#-psychoacoustics--perception)
     - [🧪 Research \& Academic Tools](#-research--academic-tools)
     - [🕹️ Unconventional Interfaces](#️-unconventional-interfaces)
+  - [🎓 Reading](#-reading)
+    - [📑 Articles](#-articles)
+    - [📖 Books](#-books)
 
 ## 🎚️ Digital Audio Workstations (DAWs)
 
