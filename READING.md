@@ -2,34 +2,34 @@
 
 > A curated list of awesome articles and books about audio synthesis, audio production, signal processing, sound design and music creation & generation.
 
-## 📚 Table of Contents
-- [🎓 Reading](#-reading)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [📑 Articles](#-articles)
-    - [🌾 Granular Synthesis \& Sound Modeling](#-granular-synthesis--sound-modeling)
-    - [🎮 Game Audio \& Interactive Music Systems](#-game-audio--interactive-music-systems)
-    - [🧠 Psychoacoustics \& Perception-Based Audio](#-psychoacoustics--perception-based-audio)
-    - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis)
-    - [🔌 Web Module Implementation](#-web-module-implementation)
-    - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance)
-    - [🎵 Merzbow \& Noise Performance](#-merzbow--noise-performance)
-    - [🎶 Matmos \& Plunderphonics](#-matmos--plunderphonics)
-    - [🧠 Kim Cascone \& Postdigital Aesthetics](#-kim-cascone--postdigital-aesthetics)
-    - [🏷️ Mille Plateaux / Force Inc Labels](#️-mille-plateaux--force-inc-labels)
-    - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis-1)
-    - [🔌 Web Module Implementation](#-web-module-implementation-1)
-    - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance-1)
-    - [🎵 Merzbow \& Noise Performance](#-merzbow--noise-performance-1)
-    - [🎶 Matmos \& Plunderphonics](#-matmos--plunderphonics-1)
-    - [🧠 Kim Cascone \& Postdigital Aesthetics](#-kim-cascone--postdigital-aesthetics-1)
-    - [🏷️ Mille Plateaux / Force Inc Labels](#️-mille-plateaux--force-inc-labels-1)
-  - [📖 Books](#-books)
 
 ---
 
-## 📑 Articles
+# 📚 Table of Contents
+- [🎓 Reading](#-reading)
+- [📚 Table of Contents](#-table-of-contents)
+- [📑 Articles](#-articles)
+  - [🌾 Granular Synthesis \& Sound Modeling](#-granular-synthesis--sound-modeling)
+  - [🎮 Game Audio \& Interactive Music Systems](#-game-audio--interactive-music-systems)
+  - [🧠 Psychoacoustics \& Perception-Based Audio](#-psychoacoustics--perception-based-audio)
+  - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis)
+  - [🔌 Web Module Implementation](#-web-module-implementation)
+  - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance)
+  - [🎶 Matmos \& Plunderphonics](#-matmos--plunderphonics)
+  - [🧠 Kim Cascone \& Postdigital Aesthetics](#-kim-cascone--postdigital-aesthetics)
+  - [🏷️ Mille Plateaux / Force Inc Labels](#️-mille-plateaux--force-inc-labels)
+  - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis-1)
+  - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance-1)
+  - [🎵 Merzbow \& Noise Performance](#-merzbow--noise-performance)
+  - [🧠 Postdigital \& Glitch Aesthetics](#-postdigital--glitch-aesthetics)
+- [📖 Books](#-books)
 
-### 🌾 Granular Synthesis & Sound Modeling
+
+---
+
+# 📑 Articles
+
+## 🌾 Granular Synthesis & Sound Modeling
 
 - **Implementing Real-Time Granular Synthesis** (https://www.rossbencina.com/static/code/granular-synthesis/BencinaAudioAnecdotes310801.pdf)  
   *Ross Bencina* — *Audio Anecdotes*, 2003  
@@ -54,7 +54,7 @@
 
 ---
 
-### 🎮 Game Audio & Interactive Music Systems
+## 🎮 Game Audio & Interactive Music Systems
 
 - **Game Audio Fundamentals: An Introduction to the Theory, Planning & Implementation** (https://dl.avanalyse.com/books/Game%20Audio%20Fundamentals.pdf)  
   *–* — Downloadable PDF, c. 2010s  
@@ -87,7 +87,7 @@
 
 ---
 
-### 🧠 Psychoacoustics & Perception-Based Audio
+## 🧠 Psychoacoustics & Perception-Based Audio
 
 - **Psychoacoustics: A Brief Historical Overview** (https://acousticstoday.org/wp-content/uploads/2015/08/Psychoacoustics-A-Brief-Historical-Overview.pdf)  
   *William A. Yost* — *Acoustics Today*, 2015  
@@ -114,7 +114,7 @@
   Connects frame theory and filter-bank based DSP for psychoacoustic signal processing.
 
 
-### 🎛️ Xenakis & Stochastic/Granular Synthesis
+## 🎛️ Xenakis & Stochastic/Granular Synthesis
 - **Dynamic Stochastic Wavetable Synthesis** (https://www.dafx.de/paper-archive/2023/DAFx23_paper_74.pdf)  
   *Raphael Radna* — *DAFx23*, 2023  
   Presents a modern implementation and generalization of Xenakis’s DSS (used in GENDY3). :contentReference[oaicite:1]{index=1}
@@ -131,7 +131,7 @@
   *Peter Hoffmann* — *Journal of New Music Research*, 2004  
   Analyzes pitch dynamics in Xenakis’s GENDY3. :contentReference[oaicite:4]{index=4}
 
-### 🔌 Web Module Implementation  
+## 🔌 Web Module Implementation  
 - **Gendy.js: A Web Audio Module for Dynamic Stochastic Synthesis** (https://webaudioconf.com/_data/papers/pdf/2016/2016_61.pdf)  
   *–* — *WeBAudioConf*, 2016  
   Brings Xenakis’s stochastic synthesis to the browser via Web Audio API. :contentReference[oaicite:5]{index=5}
@@ -143,7 +143,7 @@
 
 ---
 
-### 🎚️ David Tudor & Experimental Performance  
+## 🎚️ David Tudor & Experimental Performance  
 - **David Tudor as Composer/Performer in Cage’s Variations II** (https://www.getty.edu/research/exhibitions_events/events/david_tudor_symposium/pdf/pritchett.pdf)  
   *James Pritchett* — *Getty Symposium*, 2001  
   Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
@@ -161,14 +161,7 @@
 
 ---
 
-### 🎵 Merzbow & Noise Performance  
-- **Razor Blades in the Dark: An Interview With Merzbow** (https://thequietus.com/interviews/merzbow-interview/)  
-  *Joseph Burnett* — *The Quietus*, Apr 2013  
-  An expansive exploration of Merzbow’s perspectives and aesthetics. :contentReference[oaicite:9]{index=9}
 
-- **An Interview With Masami Akita (Merzbow)** (https://15questions.net/interview/merzbow-about-improvisation/)  
-  *Masami Akita* — *15questions.net*, 2013  
-  Discusses improvisation and emotional engagement through volume. :contentReference[oaicite:10]{index=10}
 
 
 
@@ -176,24 +169,30 @@
 
 ---
 
-### 🎶 Matmos & Plunderphonics  
+## 🎶 Matmos & Plunderphonics  
 - **Matmos – Sound On Sound** (https://www.soundonsound.com/people/matmos)  
   *Tom Doyle* — *SOS*, May 2004  
-  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage. :contentReference[oaicite:11]{index=11}
+  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage.
 
 - **Matmos: Inhuman Sound (BOMB Magazine Interview)** (https://bombmagazine.org/articles/2017/10/25/inhuman-sound-an-interview-with-matmos/)  
   *Britton Powell* — *BOMB Magazine*, Oct 2017  
-  Insightful reflections on Matmos’s conceptual sound practices. :contentReference[oaicite:12]{index=12}
-
+  
 - **Plunderphonics, or Audio Piracy as a Compositional Prerogative** (https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/3000/files/2017/01/Plunderphonics.pdf)  
   *John Oswald* — *Wired Society Conf.*, 1985  
-  Foundational manifesto on plunderphonics as artistic collage. :contentReference[oaicite:13]{index=13}
+  Foundational manifesto on plunderphonics as artistic collage.
 
+- **Tom Doyle* — *SOS**, May 2004  
+  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage. 
+  
+- **Britton Powell* — *BOMB Magazine**, Oct 2017  
+  Insightful reflections on Matmos’s conceptual sound practices.
 
+- **John Oswald* — *Wired Society Conf.**, 1985  
+  Foundational manifesto on plunderphonics as artistic collage.
 
 ---
 
-### 🧠 Kim Cascone & Postdigital Aesthetics  
+## 🧠 Kim Cascone & Postdigital Aesthetics  
 - **An Interview With Kim Cascone** (https://cycling74.com/articles/an-interview-with-kim-cascone)  
   *Ben Nevile* — *Cycling ’74*, ca 2004  
   Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
@@ -207,17 +206,13 @@
 
 ---
 
-### 🏷️ Mille Plateaux / Force Inc Labels  
-- **A Mille Plateaux Manifesto** (https://www.cambridge.org/core/journals/organised-sound/article/mille-plateaux-manifesto/053421BDC3C5D8170BFC284D9248D388)  
-  *–* — *Organised Sound*, 2002  
-  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
-
-- **Technodeleuze and Mille Plateaux: Achim Szepanski’s Interview (1994–1996)** (https://onscenes.weebly.com/music/technodeleuze-and-mille-plateaux-achim-szepanskis-interview-1994-1996)  
-  *Achim Szepanski* — 1996  
-  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
+## 🏷️ Mille Plateaux / Force Inc Labels  
 
 
-### 🎛️ Xenakis & Stochastic/Granular Synthesis
+
+
+
+## 🎛️ Xenakis & Stochastic/Granular Synthesis
   *Raphael Radna* — *DAFx23*, 2023  
   Presents a modern implementation and generalization of Xenakis’s DSS (used in GENDY3). :contentReference[oaicite:1]{index=1}
 
@@ -230,7 +225,7 @@
   *Peter Hoffmann* — *Journal of New Music Research*, 2004  
   Analyzes pitch dynamics in Xenakis’s GENDY3. :contentReference[oaicite:4]{index=4}
 
-### 🔌 Web Module Implementation  
+- ** Web Module Implementation**
   *–* — *WeBAudioConf*, 2016  
   Brings Xenakis’s stochastic synthesis to the browser via Web Audio API. :contentReference[oaicite:5]{index=5}
 
@@ -239,7 +234,7 @@
 
 ---
 
-### 🎚️ David Tudor & Experimental Performance  
+## 🎚️ David Tudor & Experimental Performance  
   *James Pritchett* — *Getty Symposium*, 2001  
   Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
 
@@ -254,27 +249,20 @@
 
 ---
 
-### 🎵 Merzbow & Noise Performance  
+## 🎵 Merzbow & Noise Performance  
+
+- **Razor Blades in the Dark: An Interview With Merzbow** (https://thequietus.com/interviews/merzbow-interview/)  
   *Joseph Burnett* — *The Quietus*, Apr 2013  
-  An expansive exploration of Merzbow’s perspectives and aesthetics. :contentReference[oaicite:9]{index=9}
+  An expansive exploration of Merzbow’s perspectives and aesthetics.
 
+- **An Interview With Masami Akita (Merzbow)** (https://15questions.net/interview/merzbow-about-improvisation/)  
   *Masami Akita* — *15questions.net*, 2013  
-  Discusses improvisation and emotional engagement through volume. :contentReference[oaicite:10]{index=10}
-
-
+  Discusses improvisation and emotional engagement through volume.
 
 
 ---
 
-### 🎶 Matmos & Plunderphonics  
-  *Tom Doyle* — *SOS*, May 2004  
-  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage. :contentReference[oaicite:11]{index=11}
 
-  *Britton Powell* — *BOMB Magazine*, Oct 2017  
-  Insightful reflections on Matmos’s conceptual sound practices. :contentReference[oaicite:12]{index=12}
-
-  *John Oswald* — *Wired Society Conf.*, 1985  
-  Foundational manifesto on plunderphonics as artistic collage. :contentReference[oaicite:13]{index=13}
 
 
 
@@ -282,24 +270,28 @@
 
 ---
 
-### 🧠 Kim Cascone & Postdigital Aesthetics  
+## 🧠 Postdigital & Glitch Aesthetics  
   *Ben Nevile* — *Cycling ’74*, ca 2004  
   Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
 
   *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
   Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
 
-
-
-
----
-
-### 🏷️ Mille Plateaux / Force Inc Labels  
   *–* — *Organised Sound*, 2002  
   Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
 
   *Achim Szepanski* — 1996  
   Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
 
+- **A Mille Plateaux Manifesto** (https://www.cambridge.org/core/journals/organised-sound/article/mille-plateaux-manifesto/053421BDC3C5D8170BFC284D9248D388)  
+  *–* — *Organised Sound*, 2002  
+  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
 
-## 📖 Books
+- **Technodeleuze and Mille Plateaux: Achim Szepanski’s Interview (1994–1996)** (https://onscenes.weebly.com/music/technodeleuze-and-mille-plateaux-achim-szepanskis-interview-1994-1996)  
+  *Achim Szepanski* — 1996  
+  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
+
+
+---
+
+# 📖 Books
