@@ -2,57 +2,43 @@
 
 > A curated list of awesome articles and books about audio synthesis, audio production, signal processing, sound design and music creation & generation.
 
-
----
-
 # 📚 Table of Contents
 - [🎓 Reading](#-reading)
 - [📚 Table of Contents](#-table-of-contents)
 - [📑 Articles](#-articles)
-  - [🌾 Granular Synthesis \& Sound Modeling](#-granular-synthesis--sound-modeling)
-  - [🎮 Game Audio \& Interactive Music Systems](#-game-audio--interactive-music-systems)
-  - [🧠 Psychoacoustics \& Perception-Based Audio](#-psychoacoustics--perception-based-audio)
-  - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis)
-  - [🔌 Web Module Implementation](#-web-module-implementation)
   - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance)
+  - [🎮 Game Audio \& Interactive Music Systems](#-game-audio--interactive-music-systems)
+  - [🌾 Granular Synthesis \& Sound Modeling](#-granular-synthesis--sound-modeling)
   - [🎶 Matmos \& Plunderphonics](#-matmos--plunderphonics)
-  - [🧠 Kim Cascone \& Postdigital Aesthetics](#-kim-cascone--postdigital-aesthetics)
-  - [🏷️ Mille Plateaux / Force Inc Labels](#️-mille-plateaux--force-inc-labels)
-  - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis-1)
-  - [🎚️ David Tudor \& Experimental Performance](#️-david-tudor--experimental-performance-1)
   - [🎵 Merzbow \& Noise Performance](#-merzbow--noise-performance)
   - [🧠 Postdigital \& Glitch Aesthetics](#-postdigital--glitch-aesthetics)
+  - [🎼 Psychoacoustics \& Perception-Based Audio](#-psychoacoustics--perception-based-audio)
+  - [🎛️ Xenakis \& Stochastic/Granular Synthesis](#️-xenakis--stochasticgranular-synthesis)
 - [📖 Books](#-books)
-
-
----
 
 # 📑 Articles
 
-## 🌾 Granular Synthesis & Sound Modeling
+## 🎚️ David Tudor & Experimental Performance  
+- **David Tudor as Composer/Performer in Cage’s Variations II** (https://www.getty.edu/research/exhibitions_events/events/david_tudor_symposium/pdf/pritchett.pdf)  
+  *James Pritchett* — *Getty Symposium*, 2001  
+  Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
 
-- **Implementing Real-Time Granular Synthesis** (https://www.rossbencina.com/static/code/granular-synthesis/BencinaAudioAnecdotes310801.pdf)  
-  *Ross Bencina* — *Audio Anecdotes*, 2003  
-  Details techniques for achieving real-time granular synthesis on early DSP hardware.
+- **Reminiscences of a Twentieth-Century Pianist: An Interview with David Tudor** (https://academic.oup.com/mq/article-pdf/78/3/626/9904405/626.pdf)  
+  *–* — *Musical Quarterly*, 1992  
+  Tudor reflects on his career, crossing performance and technology. :contentReference[oaicite:7]{index=7}
 
-- **Particle Synthesis – A Unified Model for Granular Synthesis** (https://www.researchgate.net/publication/228935638_Particle_synthesis-a_unified_model_for_granular_synthesis)  
-  *–* — *ResearchGate*, c. 2000s  
-  Presents a general “particle” model for granular sound design, covering timing, envelope and density control.
+- **Disintegrated Circuits: Rethinking the Score in the Postwar ‘Aesthetics of Indeterminacy’** (https://faculty.ucr.edu/~ewkotz/texts/kotz-2001-Tudor.pdf)  
+  *Liz Kotz* — *Getty Symposium*, 2001  
+  Reassesses Tudor's interpretations of indeterminate scores. :contentReference[oaicite:8]{index=8}
 
-- **Spectral Granular Synthesis** (https://quod.lib.umich.edu/cgi/p/pod/dod-idx/spectral-granular-synthesis.pdf?c=icmc%3Bidno%3Dbbp2372.2018.019%3Bformat%3Dpdf)  
-  *Stefano Fasciani* — *ICMC*, 2018  
-  A frequency-domain approach to granular synthesis, offering spectral control and phase reconstruction strategies.
+  *James Pritchett* — *Getty Symposium*, 2001  
+  Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
 
-- **Neural Granular Sound Synthesis** (https://arxiv.org/abs/2008.01393)  
-  *Adrien Bitton, Philippe Esling, Tatsuya Harada* — 2020  
-  Combines variational autoencoders with granular synthesis, enabling smooth interpolation and morphing across sounds.
+  *–* — *Musical Quarterly*, 1992  
+  Tudor reflects on his career, crossing performance and technology. :contentReference[oaicite:7]{index=7}
 
-
-
-
-
-
----
+  *Liz Kotz* — *Getty Symposium*, 2001  
+  Reassesses Tudor's interpretations of indeterminate scores. :contentReference[oaicite:8]{index=8}
 
 ## 🎮 Game Audio & Interactive Music Systems
 
@@ -80,14 +66,93 @@
   *Alamgir Naushad* — 2013  
   Explores adaptive algorithmic music that responds to gameplay conditions.
 
+## 🌾 Granular Synthesis & Sound Modeling
 
+- **Implementing Real-Time Granular Synthesis** (https://www.rossbencina.com/static/code/granular-synthesis/BencinaAudioAnecdotes310801.pdf)  
+  *Ross Bencina* — *Audio Anecdotes*, 2003  
+  Details techniques for achieving real-time granular synthesis on early DSP hardware.
 
+- **Particle Synthesis – A Unified Model for Granular Synthesis** (https://www.researchgate.net/publication/228935638_Particle_synthesis-a_unified_model_for_granular_synthesis)  
+  *–* — *ResearchGate*, c. 2000s  
+  Presents a general “particle” model for granular sound design, covering timing, envelope and density control.
 
+- **Spectral Granular Synthesis** (https://quod.lib.umich.edu/cgi/p/pod/dod-idx/spectral-granular-synthesis.pdf?c=icmc%3Bidno%3Dbbp2372.2018.019%3Bformat%3Dpdf)  
+  *Stefano Fasciani* — *ICMC*, 2018  
+  A frequency-domain approach to granular synthesis, offering spectral control and phase reconstruction strategies.
 
+- **Neural Granular Sound Synthesis** (https://arxiv.org/abs/2008.01393)  
+  *Adrien Bitton, Philippe Esling, Tatsuya Harada* — 2020  
+  Combines variational autoencoders with granular synthesis, enabling smooth interpolation and morphing across sounds.
 
----
+## 🎶 Matmos & Plunderphonics  
+- **Matmos – Sound On Sound** (https://www.soundonsound.com/people/matmos)  
+  *Tom Doyle* — *SOS*, May 2004  
+  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage.
 
-## 🧠 Psychoacoustics & Perception-Based Audio
+- **Matmos: Inhuman Sound (BOMB Magazine Interview)** (https://bombmagazine.org/articles/2017/10/25/inhuman-sound-an-interview-with-matmos/)  
+  *Britton Powell* — *BOMB Magazine*, Oct 2017  
+  
+- **Plunderphonics, or Audio Piracy as a Compositional Prerogative** (https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/3000/files/2017/01/Plunderphonics.pdf)  
+  *John Oswald* — *Wired Society Conf.*, 1985  
+  Foundational manifesto on plunderphonics as artistic collage.
+
+- **Tom Doyle* — *SOS**, May 2004  
+  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage. 
+  
+- **Britton Powell* — *BOMB Magazine**, Oct 2017  
+  Insightful reflections on Matmos’s conceptual sound practices.
+
+- **John Oswald* — *Wired Society Conf.**, 1985  
+  Foundational manifesto on plunderphonics as artistic collage.
+
+## 🎵 Merzbow & Noise Performance  
+
+- **Razor Blades in the Dark: An Interview With Merzbow** (https://thequietus.com/interviews/merzbow-interview/)  
+  *Joseph Burnett* — *The Quietus*, Apr 2013  
+  An expansive exploration of Merzbow’s perspectives and aesthetics.
+
+- **An Interview With Masami Akita (Merzbow)** (https://15questions.net/interview/merzbow-about-improvisation/)  
+  *Masami Akita* — *15questions.net*, 2013  
+  Discusses improvisation and emotional engagement through volume.
+
+## 🧠 Postdigital & Glitch Aesthetics  
+  *Ben Nevile* — *Cycling ’74*, ca 2004  
+  Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
+
+  *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
+  Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
+
+  *–* — *Organised Sound*, 2002  
+  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
+
+  *Achim Szepanski* — 1996  
+  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
+
+- **A Mille Plateaux Manifesto** (https://www.cambridge.org/core/journals/organised-sound/article/mille-plateaux-manifesto/053421BDC3C5D8170BFC284D9248D388)  
+  *–* — *Organised Sound*, 2002  
+  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
+
+- **Technodeleuze and Mille Plateaux: Achim Szepanski’s Interview (1994–1996)** (https://onscenes.weebly.com/music/technodeleuze-and-mille-plateaux-achim-szepanskis-interview-1994-1996)  
+  *Achim Szepanski* — 1996  
+  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
+
+- **An Interview With Kim Cascone** (https://cycling74.com/articles/an-interview-with-kim-cascone)  
+  *Ben Nevile* — *Cycling ’74*, ca 2004  
+  Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
+
+- **The Failure of Failure: Postdigital Aesthetics Against Techno‑mystification** (https://www.researchgate.net/publication/348561456_The_Failure_of_Failure_Postdigital_Aesthetics_Against_Techno-mystification)  
+  *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
+  Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
+
+- **An Interview With Kim Cascone** (https://cycling74.com/articles/an-interview-with-kim-cascone)  
+  *Ben Nevile* — *Cycling ’74*, ca 2004  
+  Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
+
+- **The Failure of Failure: Postdigital Aesthetics Against Techno‑mystification** (https://www.researchgate.net/publication/348561456_The_Failure_of_Failure_Postdigital_Aesthetics_Against_Techno-mystification)  
+  *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
+  Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
+
+## 🎼 Psychoacoustics & Perception-Based Audio
 
 - **Psychoacoustics: A Brief Historical Overview** (https://acousticstoday.org/wp-content/uploads/2015/08/Psychoacoustics-A-Brief-Historical-Overview.pdf)  
   *William A. Yost* — *Acoustics Today*, 2015  
@@ -113,8 +178,8 @@
   *Peter Balazs, Nicki Holighaus, Thibaud Necciari, Diana Stoeva* — 2016  
   Connects frame theory and filter-bank based DSP for psychoacoustic signal processing.
 
-
 ## 🎛️ Xenakis & Stochastic/Granular Synthesis
+
 - **Dynamic Stochastic Wavetable Synthesis** (https://www.dafx.de/paper-archive/2023/DAFx23_paper_74.pdf)  
   *Raphael Radna* — *DAFx23*, 2023  
   Presents a modern implementation and generalization of Xenakis’s DSS (used in GENDY3). :contentReference[oaicite:1]{index=1}
@@ -130,89 +195,23 @@
 - **Exploring the Pitch Structure of GENDY3** (https://rohandrape.net/ut/rttcc-text/Hoffmann2004a.pdf)  
   *Peter Hoffmann* — *Journal of New Music Research*, 2004  
   Analyzes pitch dynamics in Xenakis’s GENDY3. :contentReference[oaicite:4]{index=4}
-
-## 🔌 Web Module Implementation  
+  
 - **Gendy.js: A Web Audio Module for Dynamic Stochastic Synthesis** (https://webaudioconf.com/_data/papers/pdf/2016/2016_61.pdf)  
   *–* — *WeBAudioConf*, 2016  
   Brings Xenakis’s stochastic synthesis to the browser via Web Audio API. :contentReference[oaicite:5]{index=5}
 
+  *Raphael Radna* — *DAFx23*, 2023  
+  Presents a modern implementation and generalization of Xenakis’s DSS (used in GENDY3). :contentReference[oaicite:1]{index=1}
 
+  *Daniel McKemie* — *KEAMSAC*, 2021  
+  Porting Xenakis’s GENDY system into modular synth control voltage domain. :contentReference[oaicite:2]{index=2}
 
+  *Peter Hoffmann* — *Computer Music Journal*, 2000  
+  Describes Xenakis’s software implementation of stochastic synthesis. :contentReference[oaicite:3]{index=3}
 
+  *Peter Hoffmann* — *Journal of New Music Research*, 2004  
+  Analyzes pitch dynamics in Xenakis’s GENDY3. :contentReference[oaicite:4]{index=4}
 
-
----
-
-## 🎚️ David Tudor & Experimental Performance  
-- **David Tudor as Composer/Performer in Cage’s Variations II** (https://www.getty.edu/research/exhibitions_events/events/david_tudor_symposium/pdf/pritchett.pdf)  
-  *James Pritchett* — *Getty Symposium*, 2001  
-  Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
-
-- **Reminiscences of a Twentieth-Century Pianist: An Interview with David Tudor** (https://academic.oup.com/mq/article-pdf/78/3/626/9904405/626.pdf)  
-  *–* — *Musical Quarterly*, 1992  
-  Tudor reflects on his career, crossing performance and technology. :contentReference[oaicite:7]{index=7}
-
-- **Disintegrated Circuits: Rethinking the Score in the Postwar ‘Aesthetics of Indeterminacy’** (https://faculty.ucr.edu/~ewkotz/texts/kotz-2001-Tudor.pdf)  
-  *Liz Kotz* — *Getty Symposium*, 2001  
-  Reassesses Tudor's interpretations of indeterminate scores. :contentReference[oaicite:8]{index=8}
-
-
-
-
----
-
-
-
-
-
-
-
----
-
-## 🎶 Matmos & Plunderphonics  
-- **Matmos – Sound On Sound** (https://www.soundonsound.com/people/matmos)  
-  *Tom Doyle* — *SOS*, May 2004  
-  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage.
-
-- **Matmos: Inhuman Sound (BOMB Magazine Interview)** (https://bombmagazine.org/articles/2017/10/25/inhuman-sound-an-interview-with-matmos/)  
-  *Britton Powell* — *BOMB Magazine*, Oct 2017  
-  
-- **Plunderphonics, or Audio Piracy as a Compositional Prerogative** (https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/3000/files/2017/01/Plunderphonics.pdf)  
-  *John Oswald* — *Wired Society Conf.*, 1985  
-  Foundational manifesto on plunderphonics as artistic collage.
-
-- **Tom Doyle* — *SOS**, May 2004  
-  Profile on Matmos’s technique of field recordings and cut‑and‑paste sound collage. 
-  
-- **Britton Powell* — *BOMB Magazine**, Oct 2017  
-  Insightful reflections on Matmos’s conceptual sound practices.
-
-- **John Oswald* — *Wired Society Conf.**, 1985  
-  Foundational manifesto on plunderphonics as artistic collage.
-
----
-
-## 🧠 Kim Cascone & Postdigital Aesthetics  
-- **An Interview With Kim Cascone** (https://cycling74.com/articles/an-interview-with-kim-cascone)  
-  *Ben Nevile* — *Cycling ’74*, ca 2004  
-  Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
-
-- **The Failure of Failure: Postdigital Aesthetics Against Techno‑mystification** (https://www.researchgate.net/publication/348561456_The_Failure_of_Failure_Postdigital_Aesthetics_Against_Techno-mystification)  
-  *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
-  Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
-
-
-
-
----
-
-## 🏷️ Mille Plateaux / Force Inc Labels  
-
-
-
-
-
-## 🎛️ Xenakis & Stochastic/Granular Synthesis
   *Raphael Radna* — *DAFx23*, 2023  
   Presents a modern implementation and generalization of Xenakis’s DSS (used in GENDY3). :contentReference[oaicite:1]{index=1}
 
@@ -228,70 +227,5 @@
 - ** Web Module Implementation**
   *–* — *WeBAudioConf*, 2016  
   Brings Xenakis’s stochastic synthesis to the browser via Web Audio API. :contentReference[oaicite:5]{index=5}
-
-
-
-
----
-
-## 🎚️ David Tudor & Experimental Performance  
-  *James Pritchett* — *Getty Symposium*, 2001  
-  Examines Tudor’s dual creative role in real-time performance. :contentReference[oaicite:6]{index=6}
-
-  *–* — *Musical Quarterly*, 1992  
-  Tudor reflects on his career, crossing performance and technology. :contentReference[oaicite:7]{index=7}
-
-  *Liz Kotz* — *Getty Symposium*, 2001  
-  Reassesses Tudor's interpretations of indeterminate scores. :contentReference[oaicite:8]{index=8}
-
-
-
-
----
-
-## 🎵 Merzbow & Noise Performance  
-
-- **Razor Blades in the Dark: An Interview With Merzbow** (https://thequietus.com/interviews/merzbow-interview/)  
-  *Joseph Burnett* — *The Quietus*, Apr 2013  
-  An expansive exploration of Merzbow’s perspectives and aesthetics.
-
-- **An Interview With Masami Akita (Merzbow)** (https://15questions.net/interview/merzbow-about-improvisation/)  
-  *Masami Akita* — *15questions.net*, 2013  
-  Discusses improvisation and emotional engagement through volume.
-
-
----
-
-
-
-
-
-
-
----
-
-## 🧠 Postdigital & Glitch Aesthetics  
-  *Ben Nevile* — *Cycling ’74*, ca 2004  
-  Talks genetic algorithms, glitch aesthetics, New Density concept. :contentReference[oaicite:14]{index=14}
-
-  *Kim Cascone & Petar Jandrić* — *Postdigital Sci & Education*, 2021  
-  Explores Cascone’s reflections on failure and aesthetic authenticity. :contentReference[oaicite:15]{index=15}
-
-  *–* — *Organised Sound*, 2002  
-  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
-
-  *Achim Szepanski* — 1996  
-  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
-
-- **A Mille Plateaux Manifesto** (https://www.cambridge.org/core/journals/organised-sound/article/mille-plateaux-manifesto/053421BDC3C5D8170BFC284D9248D388)  
-  *–* — *Organised Sound*, 2002  
-  Highlights Mille Plateaux’s philosophy around virtuality, noise, and digital praxis. :contentReference[oaicite:16]{index=16}
-
-- **Technodeleuze and Mille Plateaux: Achim Szepanski’s Interview (1994–1996)** (https://onscenes.weebly.com/music/technodeleuze-and-mille-plateaux-achim-szepanskis-interview-1994-1996)  
-  *Achim Szepanski* — 1996  
-  Szepanski connects Deleuze’s philosophy with the ethos of Mille Plateaux. :contentReference[oaicite:17]{index=17}
-
-
----
 
 # 📖 Books
