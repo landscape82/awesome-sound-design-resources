@@ -21,6 +21,7 @@
   - [📦 Programming Languages \& Frameworks](#-programming-languages--frameworks)
     - [🦫 Libraries for Go](#-libraries-for-go)
     - [🐍 Libraries for Python](#-libraries-for-python)
+    - [👺 Other Languages](#-other-languages)
   - [🔌 Hardware Interfacing](#-hardware-interfacing)
   - [📱 Mobile Apps](#-mobile-apps)
     - [🤖 Android](#-android)
@@ -44,9 +45,6 @@
     - [🔮 Psychoacoustics \& Perception](#-psychoacoustics--perception)
     - [🧪 Research \& Academic Tools](#-research--academic-tools)
     - [🕹️ Unconventional Interfaces](#️-unconventional-interfaces)
-  - [🎓 Reading](#-reading)
-    - [📑 Articles](#-articles)
-    - [📖 Books](#-books)
 
 ## 🎚️ Digital Audio Workstations (DAWs)
 
@@ -166,6 +164,10 @@
 - **[torchaudio](https://github.com/pytorch/audio)** - PyTorch-native audio processing and augmentation.
 - **[Wave](https://docs.python.org/3/library/wave.html)** - Standard Python library for working with `.wav` files.
 
+### 👺 Other Languages
+- **[Orca](https://github.com/hundredrabbits/Orca)** - Orca is a two-dimensional esoteric programming language in which every letter of the alphabet is an operator. 
+- **[Orca-c](https://github.com/hundredrabbits/Orca)** - Orca-c (C port) is a two-dimensional esoteric programming language in which every letter of the alphabet is an operator.
+
 ## 🔌 Hardware Interfacing
 
 - **[ALSA](https://www.alsa-project.org/)** - Advanced Linux Sound Architecture for hardware interface.
@@ -235,7 +237,9 @@
 ### 🌾 Granular Synthesis
 - **[CataRT](http://imtr.ircam.fr/imtr/CataRT)** - Real-time corpus-based concatenative synthesis system.
 - **[Grain](https://www.native-instruments.com/en/products/komplete/effects/grain/)** - Granular synthesis and manipulation tool.
+- **[gRainbow](https://github.com/StrangeLoopsAudio/gRainbow)** - Free and open-source cross-platform granular synthesizer plugin with pitch-aware sample detection.
 - **[GrainProc](https://github.com/jerryuhoo/GrainProc)** - Granular processing plugin.
+- **[Hadron Particle Synthesizer](https://github.com/Partikkelaudio/Hadron)** - Modular synthesis tool with support for granular synthesis, available as plugin and standalone.
 
 ### ⚙️ Physical Modeling
 - **[Modalys](https://forum.ircam.fr/projects/detail/modalys/)** - Physical modeling synthesis environment.
