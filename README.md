@@ -222,7 +222,7 @@
 - **[AudioKit](https://audiokit.io/)** - Audio synthesis, processing, and analysis platform.
 - **[Koala Sampler](https://www.koalasampler.com/)** - Intuitive sampler for quick beat making and sound manipulation.
 - **[miRack](https://mirack.app/)** - Eurorack-style modular synthesizer that is a mobile-optimized fork of VCV Rack with an extensive module library.
-- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Cross-platform modular synthesizer (also available on iOS).
+- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Cross-platform modular synthesizer.
 - **[VCV Rack for iOS](https://vcvrack.com/)** - Mobile modular synthesis environment.
 - **[zMors](https://www.zmors.de/)** - Modular synthesizer (iPad) designed for integration with hardware (up to 8 USB in/outputs for audio and CV).
 
