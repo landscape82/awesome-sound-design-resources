@@ -103,6 +103,7 @@
 - **[SWH Plugins](http://plugin.org.uk/ladspa-swh/)** - Large collection of LADSPA audio processing plugins.
 - **[TAP Plugins](http://tap-plugins.sourceforge.net/)** - Collection of audio processing plugins including delays and reverbs.
 - **[Valhalla Supermassive](https://valhalladsp.com/shop/reverb/valhalla-supermassive/)** - A popular plugin for creating massive reverbs and delays.
+- **[FreeEQ8](https://github.com/GareBear99/FreeEQ8)** - Open-source 8-band parametric EQ with linear phase, dynamic EQ and match EQ.
 
 ## 🌲 Field Recording & Capture
 
