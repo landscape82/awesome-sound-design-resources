@@ -1,6 +1,8 @@
-# 🎧 Awesome Sound Design resources [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# 🎧 Awesome Sound Design resources [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Lint](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml) [![Link Check](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml)
 
 > A curated list of awesome - mostly open source - resources and tools for audio synthesis, audio production, signal processing, sound design and music creation & generation.
+
+**Legend:** 🆓 free · 💰 paid / freemium · 🖥️ desktop · 🌐 web · 📱 mobile — applied inline to entries where licensing or platform isn't obvious from the description.
 
 ## Table of contents
 
@@ -45,6 +47,8 @@
     - [🔮 Psychoacoustics \& Perception](#-psychoacoustics--perception)
     - [🧪 Research \& Academic Tools](#-research--academic-tools)
     - [🕹️ Unconventional Interfaces](#️-unconventional-interfaces)
+  - [🔗 Related Lists](#-related-lists)
+  - [🤝 Contributing](#-contributing)
 
 ## 🎚️ Digital Audio Workstations (DAWs)
 
@@ -141,10 +145,9 @@
 
 ## 📦 Programming Languages & Frameworks
 
-- **[Common Music](https://commonmusic.sourceforge.net/)** - Music composition environment in Lisp and Scheme.
 - **[Csound](https://csound.com/)** - Sound and music computing system with extensive library.
 - **[FoxDot](https://foxdot.org/)** - Live coding environment for music with Python.
-- **[OpenMusic](https://openmusic-project.github.io/)** - Visual programming language for computer-aided composition.
+- **[OpenMusic](https://openmusic-project.github.io/)** - Visual programming environment for computer-aided composition (Lisp-based), supporting algorithmic and formal composition techniques adaptable for stochastic or indeterminate processes.
 - **[SuperCollider](https://supercollider.github.io/)** - Platform for audio synthesis and algorithmic composition.
 - **[TidalCycles](https://tidalcycles.org/)** - Live coding environment for algorithmic patterns (based on Haskell).
 
@@ -165,10 +168,9 @@
 ### 🐍 Libraries for Python
 
 - **[audiocraft](https://github.com/facebookresearch/audiocraft)** - Facebook's audio generation and compression framework (includes MusicGen).
-- **[audiogen](https://github.com/nickng/audiogen)** - Generator-based sound synthesis: create algorithmic audio with Python.
 - **[audioread](https://github.com/beetbox/audioread)** - Cross-library audio decoding for playback and analysis.
 - **[crepe](https://github.com/marl/crepe)** - Deep learning-based pitch tracking for monophonic audio.
-- **[essentia](https://github.com/MTG/essentia)** - C++ library with Python bindings for audio analysis and feature extraction.
+- **[essentia](https://github.com/MTG/essentia)** - C++ library with Python bindings for audio analysis and feature extraction (project site: [essentia.upf.edu](https://essentia.upf.edu/); also listed under [AI & Machine Learning](#-ai--machine-learning) for its MIR research use).
 - **[kapre](https://github.com/keunwoochoi/kapre)** - Keras layers for audio preprocessing (Melspectrograms, MFCC).
 - **[librosa](https://github.com/librosa/librosa)** - Powerful library for analyzing and manipulating audio signals.
 - **[madmom](https://github.com/CPJKU/madmom)** - Python audio and music signal processing library focused on MIR tasks.
@@ -187,9 +189,7 @@
 ### 👺 Other Languages
 
 - **[Common Lisp Music (CLM)](https://ccrma.stanford.edu/software/clm/)** - Music synthesis and signal processing package in the MUSIC-N family, allowing for highly programmatic and algorithmic approaches to sound design and composition.
-- **[OpenMusic](http://repmus.ircam.fr/openmusic/home)** - Visual programming environment for computer-aided composition. It supports various algorithmic and formal composition techniques that can be adapted for stochastic or indeterminate processes (based in Lisp).
-- **[Orca](https://github.com/hundredrabbits/Orca)** - Orca is a two-dimensional esoteric programming language in which every letter of the alphabet is an operator.
-- **[Orca-c](https://github.com/hundredrabbits/Orca)** - Orca-c (C port) is a two-dimensional esoteric programming language in which every letter of the alphabet is an operator.
+- **[Orca / Orca-c](https://github.com/hundredrabbits/Orca)** - Two-dimensional esoteric programming language in which every letter of the alphabet is an operator; [Orca-c](https://github.com/hundredrabbits/Orca-c) is the actively maintained C port.
 
 ## 🔌 Hardware Interfacing
 
@@ -310,7 +310,7 @@
 ### 🧠 AI & Machine Learning
 
 - **[DDSP](https://magenta.tensorflow.org/ddsp)** - Differentiable Digital Signal Processing library.
-- **[Essentia](https://essentia.upf.edu/)** - Library for audio analysis and audio-based music information retrieval.
+- **[Essentia](https://essentia.upf.edu/)** - Library for audio analysis and audio-based music information retrieval (see also [Libraries for Python](#-libraries-for-python) for the GitHub source).
 - **[FluCoMa](https://www.flucoma.org/)** - Fluid Corpus Manipulation toolkit for creative AI.
 - **[Librosa](https://librosa.org/)** - Python library for music and audio analysis.
 - **[Magenta](https://magenta.tensorflow.org/)** - Research project exploring AI in music and art creation.
@@ -321,7 +321,7 @@
 
 - **[AC Toolbox](https://github.com/alexarje/ac_toolbox)** - Algorithmic composition tools for Max/MSP and Pure Data.
 - **[AthenaCL](http://www.flexatone.net/athena.html)** - Modular, polyphonic, poly-paradigm algorithmic music composition.
-- **[Common Music Notation](https://commonmusic.sourceforge.net/)** - Algorithmic composition in multiple computer music languages.
+- **[Common Music](https://commonmusic.sourceforge.net/)** - Music composition environment in Lisp and Scheme, supporting algorithmic composition across multiple computer music languages.
 - **[Music21](https://web.mit.edu/music21/)** - Python toolkit for analyzing and generating music.
 
 ### 🎶 Live Coding & Network Music
@@ -365,3 +365,11 @@
 - **[OSCeleton](https://github.com/Sensebloom/OSCeleton)** - Kinect skeleton tracking with OSC output for gestural control.
 - **[Reactable](https://reactable.com/)** - Tangible user interface for musical expression.
 - **[reacTIVision](http://reactivision.sourceforge.net/)** - Framework for table-based tangible user interfaces.
+
+## 🔗 Related Lists
+
+- **[Awesome Eurorack Modular resources](https://github.com/landscape82/awesome-eurorack-modular-resources)** - Curated list of Eurorack modules, producers, and resources for modular synthesis hardware.
+
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to suggest a resource, and [CHANGELOG.md](CHANGELOG.md) for what's been added recently.
