@@ -1,4 +1,6 @@
-# 🎧 Awesome Sound Design resources [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Lint](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml) [![Link Check](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Lint](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml) [![Link Check](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml)
+
+# 🎧 Awesome Sound Design resources
 
 > A curated list of awesome - mostly open source - resources and tools for audio synthesis, audio production, signal processing, sound design and music creation & generation.
 
@@ -6,7 +8,7 @@
 
 ## Table of contents
 
-- [🎧 Awesome Sound Design resources ](#-awesome-sound-design-resources-)
+- [🎧 Awesome Sound Design resources](#-awesome-sound-design-resources)
   - [Table of contents](#table-of-contents)
   - [🎚️ Digital Audio Workstations (DAWs)](#️-digital-audio-workstations-daws)
   - [🎹 Synthesizers](#-synthesizers)
