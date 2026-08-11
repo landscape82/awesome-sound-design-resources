@@ -338,7 +338,6 @@
 - **[UPISketch](http://www.interfacesnetwork.eu/post.php?pid=230-upisketch)** - Sound composition tool developed by Centre Iannis Xenakis, based on drawing melodic contours and defining sound gestures visually.
 - **[Xenos](https://github.com/raphaelradna/xenos)** - Plugin that utilizes a novel dynamic stochastic synthesis (DSS) algorithm (extending concepts from Iannis Xenakis).
 
-
 ### 🔮 Psychoacoustics & Perception
 
 - **[Audemo (Hearing Loss Simulator)](https://github.com/samuelgarcia/HearingLossSimulator)** - Web-based application (with source code) that simulates auditory perception in individuals with impaired hearing.
