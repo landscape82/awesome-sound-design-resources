@@ -18,6 +18,7 @@ jobs:
 
       - name: Check links
         id: link-check
+        continue-on-error: true
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: "yes"
@@ -27,13 +28,40 @@ jobs:
           file-path: "./README.md"
           check-modified-files-only: "no"
 
-      - name: Open issue on failure
-        if: failure()
-        uses: JasonEtco/create-an-issue@v2
+      # Replaces JasonEtco/create-an-issue@v2: that action has no Node 24 build
+      # (latest release v2.9.2), so it kept tripping the runner's Node 20
+      # deprecation warning. gh is preinstalled on GitHub-hosted runners, so
+      # this does the same "open or update a tracking issue" job natively.
+      - name: Open or update issue on broken links
+        if: steps.link-check.outcome == 'failure'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        with:
-          filename: .github/ISSUE_TEMPLATE/broken-link.md
-          update_existing: true
-          search_existing: open
+        run: |
+          set -euo pipefail
+          TITLE="Broken link(s) found in README"
+          BODY="The weekly link-check workflow found one or more broken links in \`README.md\`.
+
+          **Workflow run:** ${RUN_URL}
+
+          Please check the run log above for the specific URL(s) that failed, then either:
+          - fix/replace the link in \`README.md\`, or
+          - remove the entry if the project is no longer available, or
+          - close this issue if the failure was a false positive (e.g. the site blocks bots) and add it to \`.markdown-link-check.json\`'s \`ignorePatterns\` if it will keep recurring."
+
+          EXISTING=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "$GITHUB_REPOSITORY" --body "$BODY"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body "$BODY" --label broken-link
+          fi
+
+      # The link-check step is informational, not blocking: a large curated
+      # list will always have some link rot, and the step above already
+      # files/updates a tracking issue for it. Fail the job only if that
+      # reporting step itself couldn't run (a real infra problem).
+      - name: Surface result
+        if: steps.link-check.outcome == 'failure'
+        run: echo "::warning::Broken links found - tracked in the broken-link issue (see previous step)."
