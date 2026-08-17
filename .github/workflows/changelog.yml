@@ -1,0 +1,49 @@
+name: Update Changelog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+
+permissions:
+  contents: write
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract added entries and update CHANGELOG.md
+        run: |
+          set -euo pipefail
+
+          # Lines added to README.md by this push that look like list entries.
+          ADDED=$(git diff "${{ github.event.before }}" "${{ github.sha }}" -- README.md \
+            | grep -E '^\+- \*\*\[' \
+            | sed 's/^\+//' || true)
+
+          if [ -z "$ADDED" ]; then
+            echo "No new resource entries added, skipping changelog update."
+            exit 0
+          fi
+
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
+          COMMIT_URL="${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+
+          BLOCK=$(printf '## %s\n\nCommit: %s\n\n%s\n' "$TIMESTAMP" "$COMMIT_URL" "$ADDED")
+
+          awk -v block="$BLOCK" '
+            /<!-- changelog-entries-start -->/ { print; print block; next }
+            { print }
+          ' CHANGELOG.md > CHANGELOG.md.tmp
+          mv CHANGELOG.md.tmp CHANGELOG.md
+
+      - name: Commit changelog
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update changelog"
+          file_pattern: CHANGELOG.md
