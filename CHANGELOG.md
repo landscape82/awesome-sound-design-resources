@@ -3,6 +3,11 @@
 Entries below are appended automatically by the `changelog.yml` workflow whenever a merge to `main` adds new resources to `README.md`. Each entry is timestamped (UTC) and lists the added lines verbatim.
 
 <!-- changelog-entries-start -->
+## 2026-08-17 13:08 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/25780ac0deb23f43d2a54b89feac5e6ee94c0f98
+
+- **[FreeEQ8](https://github.com/GareBear99/FreeEQ8)** - Open-source 8-band parametric EQ with linear phase, dynamic EQ and match EQ.
 ## 2026-08-17 11:47 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/14c8bbd9b700941c18fad52a9f2e4b4211dfe3b6
