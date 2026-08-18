@@ -209,24 +209,20 @@
 - **[Caustic 3](http://www.singlecellsoftware.com/caustic)** - Music creation tool with rack-based interface.
 - **[G-Stomper Studio](https://www.planet-h.com/g-stomper-studio/)** - Mobile music production with sampling and sequencing.
 - **[Hexen](https://www.silicondroid.com/)** - Virtual modular Eurorack synthesizer with over 50 modules.
-- **[Koala Sampler](https://www.koalasampler.com/)** - Simple and fun sampler with live performance features.
 - **[ModSynth Modular Synthesizer](https://play.google.com/store/apps/details?id=com.gallantrealm.modsynth)** - Modular synthesizer that connects various modules with supports external MIDI controllers.
 - **[Stagelight](https://us.openlabs.com/stagelight)** - Loop-based music creation and live performance.
-- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Modular synthesizer and pattern-based sequencer.
-- **[VCV Rack for Android](https://vcvrack.com/)** - Mobile version of the modular synthesizer.
 
 ### 🔄 Cross-Platform Mobile
 
 - **[KORG Gadget](https://www.korg.com/us/products/software/korg_gadget/)** - Collection of synthesizers and drum machines.
+- **[Koala Sampler](https://www.koalasampler.com/)** - Sampler for quick beat making, sound manipulation, and live performance.
+- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Modular synthesizer and pattern-based sequencer.
 - **[Volca FM](https://www.korg.com/us/products/dj/volca_fm/)** - Mobile FM synthesizer app.
 
 ### 🍏 iOS
 
 - **[AudioKit](https://audiokit.io/)** - Audio synthesis, processing, and analysis platform.
-- **[Koala Sampler](https://www.koalasampler.com/)** - Intuitive sampler for quick beat making and sound manipulation.
 - **[miRack](https://mirack.app/)** - Eurorack-style modular synthesizer that is a mobile-optimized fork of VCV Rack with an extensive module library.
-- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Cross-platform modular synthesizer.
-- **[VCV Rack for iOS](https://vcvrack.com/)** - Mobile modular synthesis environment.
 - **[zMors](https://www.zmors.de/)** - Modular synthesizer (iPad) designed for integration with hardware (up to 8 USB in/outputs for audio and CV).
 
 ## 🌐 Web-Based Tools
