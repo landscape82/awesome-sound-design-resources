@@ -2,6 +2,14 @@
 
 <!-- e.g. "Adds X to Effects & Processing", "Fixes broken link for Y", "Removes dead project Z" -->
 
+## Broken links
+
+<!--
+If this PR fixes link(s) flagged by the Weekly Link Check job summary, list
+them here (URL -> what changed): fixed, replaced, removed, or added to
+.markdown-link-check.json's ignorePatterns as a known false positive.
+-->
+
 ## Checklist
 
 - [ ] Entries follow the format: `**[Name](link)** - Description.`

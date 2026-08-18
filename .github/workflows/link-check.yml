@@ -16,24 +16,68 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install tooling
+        run: npm ci
+
       - name: Check links
         id: link-check
-        continue-on-error: true
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          use-quiet-mode: "yes"
-          use-verbose-mode: "yes"
-          config-file: ".markdown-link-check.json"
-          folder-path: "."
-          file-path: "./README.md"
-          check-modified-files-only: "no"
+        run: |
+          set +e
+          npx markdown-link-check README.md --config .markdown-link-check.json --verbose > link-check-output.txt 2>&1
+          status=$?
+          set -e
+          broken=$(grep -cE '^[[:space:]]*\[✖\]' link-check-output.txt || true)
+          echo "broken=${broken:-0}" >> "$GITHUB_OUTPUT"
+          # A non-zero exit with no broken links means the tool itself errored
+          # (bad config, network problem) rather than finding dead links -
+          # that's a real CI failure, not routine link rot.
+          if [ "$status" -ne 0 ] && [ "${broken:-0}" -eq 0 ]; then
+            exit "$status"
+          fi
+          exit 0
+
+      - name: Write job summary
+        if: always()
+        run: |
+          {
+            echo "## 🔗 Weekly Link Check — README.md"
+            echo ""
+            if [ -f link-check-output.txt ]; then
+              total=$(grep -cE '^[[:space:]]*\[[✓✖]\]' link-check-output.txt || true)
+              broken=$(grep -cE '^[[:space:]]*\[✖\]' link-check-output.txt || true)
+              total=${total:-0}
+              broken=${broken:-0}
+              ok=$((total - broken))
+              echo "**${ok}/${total} links OK**, **${broken} broken**."
+              echo ""
+              if [ "$broken" -gt 0 ]; then
+                echo "### Broken links"
+                echo ""
+                echo "| URL | Status |"
+                echo "| --- | --- |"
+                grep -E '^[[:space:]]*\[✖\]' link-check-output.txt \
+                  | sed -E 's/^[[:space:]]*\[✖\][[:space:]]*(.*)[[:space:]]→[[:space:]]Status:[[:space:]]*(.*)$/| \1 | \2 |/'
+                echo ""
+                echo "Fix or replace these in \`README.md\`, or, if a link is a known false positive, add it to \`.markdown-link-check.json\`'s \`ignorePatterns\`."
+              else
+                echo "All links resolved successfully. ✅"
+              fi
+            else
+              echo "⚠️ The link-check step did not produce output — see the job log for details."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # Replaces JasonEtco/create-an-issue@v2: that action has no Node 24 build
       # (latest release v2.9.2), so it kept tripping the runner's Node 20
       # deprecation warning. gh is preinstalled on GitHub-hosted runners, so
       # this does the same "open or update a tracking issue" job natively.
       - name: Open or update issue on broken links
-        if: steps.link-check.outcome == 'failure'
+        if: steps.link-check.outputs.broken != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -44,7 +88,7 @@ jobs:
 
           **Workflow run:** ${RUN_URL}
 
-          Please check the run log above for the specific URL(s) that failed, then either:
+          See the job summary on that run for the full list of broken links, then either:
           - fix/replace the link in \`README.md\`, or
           - remove the entry if the project is no longer available, or
           - close this issue if the failure was a false positive (e.g. the site blocks bots) and add it to \`.markdown-link-check.json\`'s \`ignorePatterns\` if it will keep recurring."
@@ -60,8 +104,7 @@ jobs:
 
       # The link-check step is informational, not blocking: a large curated
       # list will always have some link rot, and the step above already
-      # files/updates a tracking issue for it. Fail the job only if that
-      # reporting step itself couldn't run (a real infra problem).
+      # files/updates a tracking issue for it.
       - name: Surface result
-        if: steps.link-check.outcome == 'failure'
-        run: echo "::warning::Broken links found - tracked in the broken-link issue (see previous step)."
+        if: steps.link-check.outputs.broken != '0'
+        run: echo "::warning::Broken links found - see the job summary above, tracked in the broken-link issue."
