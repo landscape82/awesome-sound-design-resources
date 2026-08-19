@@ -1,6 +1,6 @@
 # 🙌 Want to Contribute?
 
-Contributions are welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
+Contributions are welcome!
 
 To add a new tool:
 
@@ -10,7 +10,7 @@ To add a new tool:
 4. Keep descriptions concise but informative
 5. Ensure the tool is actually useful for sound design
 6. Check it isn't a duplicate of an existing entry elsewhere in the list
-7. Once merged - feel free to add yourself to this file!)
+7. Once merged - feel free to add yourself to this file!
 
 ## Linting locally
 
@@ -29,4 +29,4 @@ A weekly scheduled workflow also checks for dead links and files an issue automa
 
 Thanks to all these wonderful people for improving and maintaining this awesome list! 🎧
 
-We follow the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct to keep things respectful and inclusive.
+We follow the [Code of Conduct](CODE_OF_CONDUCT.md) to keep things respectful and inclusive.
