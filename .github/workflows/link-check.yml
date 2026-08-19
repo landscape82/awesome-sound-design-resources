@@ -7,7 +7,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 jobs:
@@ -71,6 +71,26 @@ jobs:
               echo "⚠️ The link-check step did not produce output — see the job log for details."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Generate broken-links badge
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p .github/badges
+          broken="${{ steps.link-check.outputs.broken }}"
+          broken="${broken:-0}"
+          color="brightgreen"
+          if [ "$broken" -gt 0 ]; then color="red"; fi
+          cat > .github/badges/broken-links.json <<EOF
+          {"schemaVersion":1,"label":"broken links","message":"${broken}","color":"${color}"}
+          EOF
+
+      - name: Commit broken-links badge
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update broken-links badge"
+          file_pattern: .github/badges/broken-links.json
 
       # Replaces JasonEtco/create-an-issue@v2: that action has no Node 24 build
       # (latest release v2.9.2), so it kept tripping the runner's Node 20
