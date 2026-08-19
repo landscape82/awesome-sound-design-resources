@@ -43,7 +43,7 @@ jobs:
           mv CHANGELOG.md.tmp CHANGELOG.md
 
       - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "docs: update changelog"
           file_pattern: CHANGELOG.md
