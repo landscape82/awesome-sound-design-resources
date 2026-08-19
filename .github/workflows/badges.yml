@@ -1,0 +1,32 @@
+name: Update Badges
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  badges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Generate entries-count badge
+        run: |
+          set -euo pipefail
+          mkdir -p .github/badges
+          count=$(grep -cE '^- \*\*\[' README.md)
+          cat > .github/badges/entries.json <<EOF
+          {"schemaVersion":1,"label":"list entries","message":"${count}","color":"blue"}
+          EOF
+
+      - name: Commit badge
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update entries badge"
+          file_pattern: .github/badges/entries.json
