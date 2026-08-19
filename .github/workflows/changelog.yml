@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   changelog:
@@ -42,8 +43,26 @@ jobs:
           ' CHANGELOG.md > CHANGELOG.md.tmp
           mv CHANGELOG.md.tmp CHANGELOG.md
 
-      - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "docs: update changelog"
-          file_pattern: CHANGELOG.md
+      # main is protected (requires a PR + passing "lint" check), so this
+      # can't push directly - it opens a small bot PR and auto-merges it
+      # instead, once the change actually differs from what's on main.
+      - name: Open PR for changelog update
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "No changelog change, skipping."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="bot/changelog-${{ github.run_id }}"
+          git checkout -b "$BRANCH"
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog"
+          git push origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "docs: update changelog" \
+            --body "Automated update from the \`changelog\` workflow."
+          gh pr merge "$BRANCH" --auto --squash --delete-branch

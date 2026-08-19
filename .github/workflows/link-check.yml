@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 
 jobs:
   link-check:
@@ -85,12 +86,30 @@ jobs:
           {"schemaVersion":1,"label":"broken links","message":"${broken}","color":"${color}"}
           EOF
 
-      - name: Commit broken-links badge
+      # main is protected (requires a PR + passing "lint" check), so this
+      # can't push directly - it opens a small bot PR and auto-merges it
+      # instead, once the change actually differs from what's on main.
+      - name: Open PR for broken-links badge update
         if: always()
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "chore: update broken-links badge"
-          file_pattern: .github/badges/broken-links.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- .github/badges/broken-links.json; then
+            echo "No badge change, skipping."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="bot/broken-links-badge-${{ github.run_id }}"
+          git checkout -b "$BRANCH"
+          git add .github/badges/broken-links.json
+          git commit -m "chore: update broken-links badge"
+          git push origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "chore: update broken-links badge" \
+            --body "Automated update from the \`link-check\` workflow."
+          gh pr merge "$BRANCH" --auto --squash --delete-branch
 
       # Replaces JasonEtco/create-an-issue@v2: that action has no Node 24 build
       # (latest release v2.9.2), so it kept tripping the runner's Node 20
