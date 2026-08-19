@@ -3,6 +3,12 @@
 Entries below are appended automatically by the `changelog.yml` workflow whenever a merge to `main` adds new resources to `README.md`. Each entry is timestamped (UTC) and lists the added lines verbatim.
 
 <!-- changelog-entries-start -->
+## 2026-08-19 09:29 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/56bdd9fc56a533ff027b209788675e2e25f7099c
+
+- **[Koala Sampler](https://www.koalasampler.com/)** - Sampler for quick beat making, sound manipulation, and live performance.
+- **[SunVox](https://warmplace.ru/soft/sunvox/)** - Modular synthesizer and pattern-based sequencer.
 ## 2026-08-17 13:08 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/25780ac0deb23f43d2a54b89feac5e6ee94c0f98
