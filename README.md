@@ -133,6 +133,7 @@
 - **[BRP-PACU](https://www.bat-detective.org/)** - Bat call analysis software with machine learning features.
 - **[Voxengo SPAN (Free Version)](https://www.voxengo.com/product/span/)** - Real-time "fast Fourier transform" (FFT) audio frequency spectrum analyzer plugin.
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/jaaa-doc/quickguide.html)** - Real-time audio spectrum analyzer with high resolution.
+- **[OVNI TELESCOPE](https://github.com/ovniaudio/ovni)** - Analyser plugin with thirteen views on one engine, including BS.1770 loudness, per-band correlation and a rule-based verdict report.
 - **[Praat](https://www.fon.hum.uva.nl/praat/)** - Software for speech analysis in phonetics.
 - **[Sonic Visualiser](https://www.sonicvisualiser.org/)** - Application for viewing and analyzing audio file contents.
 - **[Spek](http://spek.cc/)** - Acoustic spectrum analyzer for audio analysis.
@@ -296,6 +297,7 @@
 
 - **[ambix](https://www.matthiaskronlachner.com/?p=2015)** - Ambisonic plugins for spatial audio production.
 - **[IEM Plug-in Suite](https://plugins.iem.at/)** - Tools for immersive audio production and Ambisonics.
+- **[OVNI ORBIT](https://github.com/ovniaudio/orbita)** - Binaural movement plugin with real Doppler, spherical-head interaural time difference and a SADIE II KU100 HRTF set.
 - **[SPARTA](https://leomccormack.github.io/sparta-site/)** - Spatial audio real-time applications collection.
 - **[VISR](https://cvssp.org/data/visr/)** - Framework for audio processing with emphasis on spatial audio.
 
