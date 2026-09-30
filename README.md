@@ -242,6 +242,7 @@
 
 - **[Audio Joiner](https://audio-joiner.com/)** - Simple online tool for joining audio files.
 - **[AudioSet](https://research.google.com/audioset/)** - Large-scale audio event dataset and analysis tools.
+- **[FindKeyBPM](https://findkeybpm.com/)** - Free browser key + BPM analyzer (Camelot-friendly); runs locally in the browser with no upload. 🆓 🌐
 - **[Freesound](https://freesound.org/)** - Collaborative database of audio snippets with analysis tools.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** - Web-based tone and noise generator.
 - **[Wavacity](https://wavacity.com/)** - An online audio editor based on the Audacity codebase that runs in a web browser.
