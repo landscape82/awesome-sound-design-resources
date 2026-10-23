@@ -316,6 +316,7 @@
 
 - **[DDSP](https://magenta.tensorflow.org/ddsp)** 🆓 - Differentiable Digital Signal Processing library.
 - **[FluCoMa](https://www.flucoma.org/)** 🆓 - Fluid Corpus Manipulation toolkit for creative AI.
+- **[HeartMuLa web app](https://heart-mula.com/)** 💰 🌐 - Hosted idea/lyrics-to-song app using Suno via kie.ai, separate from the open-source HeartMuLa model; free listening credits after sign-in, paid downloads, and commercial use only for songs created on Pro or Business.
 - **[Magenta](https://magenta.tensorflow.org/)** 🆓 - Research project exploring AI in music and art creation.
 - **[MIR Toolbox](https://www.jyu.fi/hytk/fi/laitokset/mutku/en/research/materials/mirtoolbox)** 🆓 - MATLAB/Octave toolbox for music information retrieval.
 - **[MusicHero.ai](https://musichero.ai/tag/Chance)** 💰 🌐 - AI song generator, "Chance Music Tag" aims to create music with elements left to chance or performer's discretion, aligning with principles of aleatoric music.
