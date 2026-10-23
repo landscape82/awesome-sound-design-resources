@@ -1,10 +1,5 @@
 name: README Sync (changelog + entries badge)
 
-# Replaces the separate changelog.yml and badges.yml workflows, which each
-# opened their own bot PR on every README change; once one merged, the other
-# fell behind main (or conflicted) and auto-merge left it stuck. All bot
-# updates now go through one rolling branch and PR - see .github/scripts/bot-sync.sh.
-
 on:
   push:
     branches: [main]
@@ -16,9 +11,6 @@ permissions:
   contents: write
   pull-requests: write
 
-# Shared with link-check.yml's badge job so the two never push to the bot
-# branch at the same time. Runs queue rather than cancel; if a queued run is
-# superseded, the next one still logs everything since the last changelog entry.
 concurrency:
   group: repo-sync
   cancel-in-progress: false
