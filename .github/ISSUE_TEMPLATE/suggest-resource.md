@@ -12,6 +12,6 @@ labels: new-resource
 **Why does it belong here?** (what it does, why it's useful for sound design/audio production)
 
 **Checklist** (see [CONTRIBUTING.md](../../CONTRIBUTING.md)):
-- [ ] It's open source and actively maintained (or a clearly labeled exception, e.g. free-tier proprietary tool)
+- [ ] It's free or open source and actively maintained (paid / freemium tools are OK if marked 💰)
 - [ ] It's genuinely useful for sound design / audio production / music creation
 - [ ] It isn't already in the list
