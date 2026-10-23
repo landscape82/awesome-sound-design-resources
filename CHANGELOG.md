@@ -3,6 +3,11 @@
 Entries below are appended automatically by the `changelog.yml` workflow whenever a merge to `main` adds new resources to `README.md`. Each entry is timestamped (UTC) and lists the added lines verbatim.
 
 <!-- changelog-entries-start -->
+## 2026-10-23 10:26 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/547e4eba6c6664fbdb567306a8ca5a9adc3db644
+
+- **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
 ## 2026-10-23 10:20 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/3fad3e39b2c6bf429f106574e656a0d8d208a573
