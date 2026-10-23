@@ -242,6 +242,7 @@
 ### 📈 Online Analysis & Utilities
 
 - **[Audio Joiner](https://audio-joiner.com/)** 🆓 🌐 - Simple online tool for joining audio files.
+- **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
 - **[Wavacity](https://wavacity.com/)** 🆓 🌐 - An online audio editor based on the Audacity codebase that runs in a web browser.
 
