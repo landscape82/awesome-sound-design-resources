@@ -2,7 +2,6 @@ name: Weekly Link Check
 
 on:
   schedule:
-    # Every Monday at 06:00 UTC
     - cron: "0 6 * * 1"
   workflow_dispatch: {}
 
@@ -14,6 +13,8 @@ permissions:
 jobs:
   link-check:
     runs-on: ubuntu-latest
+    outputs:
+      broken: ${{ steps.link-check.outputs.broken }}
     steps:
       - uses: actions/checkout@v7
 
@@ -32,16 +33,10 @@ jobs:
           npx markdown-link-check README.md --config .markdown-link-check.json --verbose > link-check-output.txt 2>&1
           status=$?
           set -e
-          # --verbose prints every failing link twice (inline, then again in the
-          # end-of-file summary), so dedupe by URL - keeping the first, more
-          # detailed line - before counting.
           { grep -E '^[[:space:]]*\[✖\]' link-check-output.txt || true; } \
             | awk -F ' → ' '!seen[$1]++' > broken-links.txt
           broken=$(wc -l < broken-links.txt | tr -d ' ')
           echo "broken=${broken:-0}" >> "$GITHUB_OUTPUT"
-          # A non-zero exit with no broken links means the tool itself errored
-          # (bad config, network problem) rather than finding dead links -
-          # that's a real CI failure, not routine link rot.
           if [ "$status" -ne 0 ] && [ "${broken:-0}" -eq 0 ]; then
             exit "$status"
           fi
@@ -78,48 +73,6 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Generate broken-links badge
-        if: always()
-        run: |
-          set -euo pipefail
-          mkdir -p .github/badges
-          broken="${{ steps.link-check.outputs.broken }}"
-          broken="${broken:-0}"
-          color="brightgreen"
-          if [ "$broken" -gt 0 ]; then color="red"; fi
-          cat > .github/badges/broken-links.json <<EOF
-          {"schemaVersion":1,"label":"broken links","message":"${broken}","color":"${color}"}
-          EOF
-
-      # main is protected (requires a PR + passing "lint" check), so this
-      # can't push directly - it opens a small bot PR and auto-merges it
-      # instead, once the change actually differs from what's on main.
-      - name: Open PR for broken-links badge update
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          if git diff --quiet -- .github/badges/broken-links.json; then
-            echo "No badge change, skipping."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          BRANCH="bot/broken-links-badge-${{ github.run_id }}"
-          git checkout -b "$BRANCH"
-          git add .github/badges/broken-links.json
-          git commit -m "chore: update broken-links badge"
-          git push origin "$BRANCH"
-          gh pr create --base main --head "$BRANCH" \
-            --title "chore: update broken-links badge" \
-            --body "Automated update from the \`link-check\` workflow."
-          gh pr merge "$BRANCH" --auto --squash --delete-branch
-
-      # Replaces JasonEtco/create-an-issue@v2: that action has no Node 24 build
-      # (latest release v2.9.2), so it kept tripping the runner's Node 20
-      # deprecation warning. gh is preinstalled on GitHub-hosted runners, so
-      # this does the same "open or update a tracking issue" job natively.
       - name: Open or update issue on broken links
         if: steps.link-check.outputs.broken != '0'
         env:
@@ -146,9 +99,53 @@ jobs:
             gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body "$BODY" --label broken-link
           fi
 
-      # The link-check step is informational, not blocking: a large curated
-      # list will always have some link rot, and the step above already
-      # files/updates a tracking issue for it.
+      - name: Close tracking issue when all links pass
+        if: steps.link-check.outputs.broken == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          TITLE="Broken link(s) found in README"
+          EXISTING=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue close "$EXISTING" --repo "$GITHUB_REPOSITORY" \
+              --comment "All links passed in ${RUN_URL} - closing automatically."
+          fi
+
       - name: Surface result
         if: steps.link-check.outputs.broken != '0'
         run: echo "::warning::Broken links found - see the job summary above, tracked in the broken-link issue."
+
+  badge:
+    needs: link-check
+    if: always() && needs.link-check.outputs.broken != ''
+    runs-on: ubuntu-latest
+    concurrency:
+      group: repo-sync
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check out bot branch
+        run: .github/scripts/bot-sync.sh checkout
+
+      - name: Generate broken-links badge
+        env:
+          BROKEN: ${{ needs.link-check.outputs.broken }}
+        run: |
+          set -euo pipefail
+          color="brightgreen"
+          if [ "$BROKEN" -gt 0 ]; then color="red"; fi
+          cat > .github/badges/broken-links.json <<EOF
+          {"schemaVersion":1,"label":"broken links","message":"${BROKEN}","color":"${color}"}
+          EOF
+
+      - name: Open or update bot PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/bot-sync.sh publish "chore: update broken-links badge"

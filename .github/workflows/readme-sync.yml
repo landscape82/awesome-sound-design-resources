@@ -1,0 +1,44 @@
+name: README Sync (changelog + entries badge)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: repo-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check out bot branch
+        run: .github/scripts/bot-sync.sh checkout
+
+      - name: Update CHANGELOG.md with newly added entries
+        run: python3 .github/scripts/update_changelog.py origin/main
+
+      - name: Generate entries-count badge
+        run: |
+          set -euo pipefail
+          count=$(grep -cE '^- \*\*\[' README.md)
+          cat > .github/badges/entries.json <<EOF
+          {"schemaVersion":1,"label":"list entries","message":"${count}","color":"blue"}
+          EOF
+
+      - name: Open or update bot PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          .github/scripts/bot-sync.sh publish "chore: sync changelog and entries badge"

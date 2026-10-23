@@ -3,8 +3,8 @@
     { "pattern": "^#" }
   ],
   "retryOn429": true,
-  "retryCount": 3,
+  "retryCount": 5,
   "fallbackRetryDelay": "30s",
-  "timeout": "20s",
+  "timeout": "30s",
   "aliveStatusCodes": [200, 206, 301, 302, 303, 307, 308, 403, 418, 429]
 }
