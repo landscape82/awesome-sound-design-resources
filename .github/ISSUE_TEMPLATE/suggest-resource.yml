@@ -1,0 +1,109 @@
+name: Suggest a resource
+description: Suggest a tool, library or resource to add to the list.
+title: "Add: <resource name>"
+labels: [new-resource]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Please check [CONTRIBUTING.md](https://github.com/landscape82/awesome-sound-design-resources/blob/main/CONTRIBUTING.md) and make sure the resource isn't already in the list.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: e.g. Surge XT
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      description: Official site or source repository.
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options:
+        - "🎚️ Digital Audio Workstations (DAWs)"
+        - "🧩 Modular Synthesizers & Tools"
+        - "🔢 Software Synthesizers"
+        - "✂️ Samplers & Sample Manipulation"
+        - "🎛️ Multi-Effects Suites"
+        - "🌪️ Specialized Effects"
+        - "✏️ Audio Editors & Converters"
+        - "🌲 Field Recording & Capture"
+        - "📊 Analysis & Visualization"
+        - "🛠️ Utilities & Helpers"
+        - "📦 Programming Languages & Frameworks"
+        - "🧰 Plugin & App Frameworks"
+        - "🦫 Libraries for Go"
+        - "🐍 Libraries for Python"
+        - "👺 Other Languages"
+        - "🔌 Hardware Interfacing"
+        - "🤖 Android"
+        - "🔄 Cross-Platform Mobile"
+        - "🍏 iOS"
+        - "🛜 Browser DAWs & Sequencers"
+        - "📈 Online Analysis & Utilities"
+        - "📶 Web Synthesizers & Instruments"
+        - "📚 Sound Libraries & Datasets"
+        - "🔬 Bioacoustics & Scientific Audio"
+        - "🎮 Game Audio, Interactive Sound & Trackers"
+        - "🌾 Granular Synthesis"
+        - "⚙️ Physical Modeling"
+        - "🔊 Spatial Audio & 3D Sound"
+        - "🗣️ Voice & Speech Processing"
+        - "🧠 AI & Machine Learning"
+        - "🎼 Algorithmic Composition"
+        - "🎶 Live Coding & Network Music"
+        - "🔮 Psychoacoustics & Perception"
+        - "🧪 Research & Academic Tools"
+        - "🕹️ Unconventional Interfaces"
+        - "Other / not sure"
+    validations:
+      required: true
+  - type: dropdown
+    id: price
+    attributes:
+      label: Price
+      description: "💰 also covers free tiers with significant limits (demo, trial, non-commercial use, revenue cap)."
+      options:
+        - "🆓 Free / open source"
+        - "💰 Paid or freemium"
+    validations:
+      required: true
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platforms
+      description: Leave empty for libraries, languages and frameworks.
+      options:
+        - label: "🖥️ Desktop"
+        - label: "🌐 Web"
+        - label: "📱 Mobile"
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: One sentence, as it should appear in the list.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it belong here?
+      description: What it does and why it's useful for sound design, audio production or music creation.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: It's free or open source and actively maintained (paid / freemium tools are OK if marked 💰)
+          required: true
+        - label: It's genuinely useful for sound design / audio production / music creation
+          required: true
+        - label: It isn't already in the list
+          required: true

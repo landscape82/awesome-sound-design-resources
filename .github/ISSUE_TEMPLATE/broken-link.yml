@@ -1,0 +1,38 @@
+name: Report a broken link
+description: Report a dead or wrong link in the list.
+title: "Broken link: <resource name>"
+labels: [broken-link]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Broken URL
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What's wrong?
+      options:
+        - Page not found / site down
+        - Redirects somewhere unrelated
+        - Project discontinued or archived
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Suggested replacement link
+      description: Optional - e.g. the project's new home or GitHub repo.
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
