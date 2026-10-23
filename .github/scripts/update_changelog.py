@@ -8,7 +8,7 @@ import sys
 CHANGELOG = "CHANGELOG.md"
 START = "<!-- changelog-entries-start -->"
 SHA_RE = re.compile(r"<!-- changelog-last-sha: ([0-9a-f]{7,40}) -->")
-ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]\(")
+ENTRY_RE = re.compile(r"^- \*\*\[(.+?)\]\((\S+?)\)")
 
 def git(*args):
     return subprocess.run(["git", *args], check=True, capture_output=True, text=True).stdout
@@ -19,6 +19,10 @@ def entries(ref):
 
 def name(line):
     return ENTRY_RE.match(line).group(1).strip().lower()
+
+def url(line):
+    u = ENTRY_RE.match(line).group(2).lower()
+    return re.sub(r"/+$", "", re.sub(r"^https?://(www\.)?", "", u))
 
 def main():
     target = git("rev-parse", sys.argv[1] if len(sys.argv) > 1 else "HEAD").strip()
@@ -38,8 +42,10 @@ def main():
         print("Changelog already covers the latest main.")
         return
 
-    old_names = {name(line) for line in entries(last)}
-    added = [line for line in entries(target) if name(line) not in old_names]
+    old = entries(last)
+    old_names = {name(line) for line in old}
+    old_urls = {url(line) for line in old}
+    added = [line for line in entries(target) if name(line) not in old_names and url(line) not in old_urls]
     if not added:
         print("No new resource entries since the last changelog update.")
         return

@@ -17,4 +17,4 @@ them here (URL -> what changed): fixed, replaced, removed, or added to
 - [ ] Linked project is free or open source and actively maintained (paid / freemium tools are marked 💰)
 - [ ] No duplicate entry already exists elsewhere in the list
 - [ ] Table of contents updated if a section/subsection was added or renamed
-- [ ] `npm run lint` and `npm run lint:links` pass locally (or CI is expected to catch it)
+- [ ] `npm run validate` and `npm run lint:md` pass locally (or CI is expected to catch it)

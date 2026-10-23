@@ -174,7 +174,7 @@
 - **[go-dsp](https://github.com/mjibson/go-dsp)** 🆓 - Signal processing algorithms in Go: FFT, filters, windowing, etc.
 - **[music-theory](https://github.com/go-music-theory/music-theory)** 🆓 - Music theory library for Go: chords, intervals, MIDI pitch mapping.
 - **[oto](https://github.com/hajimehoshi/oto)** 🆓 - Low-level cross-platform audio output library. Lightweight and used in games.
-- **[portaudio](https://github.com/gordonklaus/portaudio)** 🆓 - Go bindings for the PortAudio library — real-time audio I/O.
+- **[portaudio (Go)](https://github.com/gordonklaus/portaudio)** 🆓 - Go bindings for the PortAudio library — real-time audio I/O.
 
 ### 🐍 Libraries for Python
 
