@@ -1,6 +1,6 @@
 # Changelog
 
-Entries below are appended automatically by the `changelog.yml` workflow whenever a merge to `main` adds new resources to `README.md`. Each entry is timestamped (UTC) and lists the added lines verbatim.
+Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. Each entry is timestamped (UTC) and lists the added lines verbatim.
 
 <!-- changelog-entries-start -->
 ## 2026-10-23 10:26 UTC
