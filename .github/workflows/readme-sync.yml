@@ -1,10 +1,9 @@
 name: README Sync (changelog + entries badge)
 
-# Replaces the separate changelog.yml and badges.yml workflows. Those each
+# Replaces the separate changelog.yml and badges.yml workflows, which each
 # opened their own bot PR on every README change; once one merged, the other
-# fell behind main (or conflicted) and auto-merge left it stuck. This workflow
-# keeps a single rolling bot PR on a fixed branch instead: each run merges the
-# latest main into it, appends the new changelog block and refreshes the badge.
+# fell behind main (or conflicted) and auto-merge left it stuck. All bot
+# updates now go through one rolling branch and PR - see .github/scripts/bot-sync.sh.
 
 on:
   push:
@@ -17,13 +16,12 @@ permissions:
   contents: write
   pull-requests: write
 
-# Queue runs (don't cancel) so every push's changelog block gets recorded.
+# Shared with link-check.yml's badge job so the two never push to the bot
+# branch at the same time. Runs queue rather than cancel; if a queued run is
+# superseded, the next one still logs everything since the last changelog entry.
 concurrency:
-  group: readme-sync
+  group: repo-sync
   cancel-in-progress: false
-
-env:
-  BOT_BRANCH: bot/readme-sync
 
 jobs:
   sync:
@@ -33,82 +31,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check out bot branch (reuse open one if it exists)
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git ls-remote --exit-code --heads origin "$BOT_BRANCH" > /dev/null; then
-            git fetch origin "$BOT_BRANCH"
-            git checkout -B "$BOT_BRANCH" "origin/$BOT_BRANCH"
-            # Bring the pending bot PR up to date so it never sits "behind" main.
-            git merge --no-edit origin/main
-          else
-            git checkout -B "$BOT_BRANCH" origin/main
-          fi
+      - name: Check out bot branch
+        run: .github/scripts/bot-sync.sh checkout
 
-      # Only on push: workflow_dispatch has no "before" commit to diff against.
-      - name: Extract added entries and update CHANGELOG.md
-        if: github.event_name == 'push'
-        run: |
-          set -euo pipefail
-
-          # Lines added to README.md by this push that look like list entries.
-          ADDED=$(git diff "${{ github.event.before }}" "${{ github.sha }}" -- README.md \
-            | grep -E '^\+- \*\*\[' \
-            | sed 's/^\+//' || true)
-
-          if [ -z "$ADDED" ]; then
-            echo "No new resource entries added, skipping changelog update."
-            exit 0
-          fi
-
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
-          COMMIT_URL="${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
-
-          BLOCK=$(printf '## %s\n\nCommit: %s\n\n%s\n' "$TIMESTAMP" "$COMMIT_URL" "$ADDED")
-
-          awk -v block="$BLOCK" '
-            /<!-- changelog-entries-start -->/ { print; print block; next }
-            { print }
-          ' CHANGELOG.md > CHANGELOG.md.tmp
-          mv CHANGELOG.md.tmp CHANGELOG.md
+      - name: Update CHANGELOG.md with newly added entries
+        run: python3 .github/scripts/update_changelog.py origin/main
 
       - name: Generate entries-count badge
         run: |
           set -euo pipefail
-          mkdir -p .github/badges
           count=$(grep -cE '^- \*\*\[' README.md)
           cat > .github/badges/entries.json <<EOF
           {"schemaVersion":1,"label":"list entries","message":"${count}","color":"blue"}
           EOF
 
-      # main is protected (requires a PR + passing "lint" check), so this
-      # can't push directly - it pushes to the bot branch and opens (or
-      # updates) a single auto-merging PR instead.
-      - name: Push bot branch and open/update PR
+      - name: Open or update bot PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -euo pipefail
-          git add CHANGELOG.md .github/badges/entries.json
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: sync changelog and entries badge"
-          fi
-
-          if git diff --quiet origin/main -- CHANGELOG.md .github/badges/entries.json; then
-            echo "Changelog and badge already match main, nothing to propose."
-            exit 0
-          fi
-
-          git push origin "$BOT_BRANCH"
-
-          EXISTING=$(gh pr list --head "$BOT_BRANCH" --state open --json number --jq '.[0].number // empty')
-          if [ -n "$EXISTING" ]; then
-            echo "Updated existing bot PR #$EXISTING."
-          else
-            gh pr create --base main --head "$BOT_BRANCH" \
-              --title "chore: sync changelog and entries badge" \
-              --body "Automated update from the \`readme-sync\` workflow."
-          fi
-          gh pr merge "$BOT_BRANCH" --auto --squash --delete-branch
+          .github/scripts/bot-sync.sh publish "chore: sync changelog and entries badge"
