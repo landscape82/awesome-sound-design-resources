@@ -1,20 +1,7 @@
 #!/usr/bin/env bash
-# Shared helper for workflows that need to update generated files on main.
-#
-# main is protected (requires a PR + passing "lint" check), so bots can't push
-# to it directly. Instead every bot update goes to one rolling branch
-# ($BOT_BRANCH) with at most one open, auto-merging PR. Each run first merges
-# the latest main into that branch, so the PR never falls behind main and
-# separate workflows (readme-sync, link-check) never open competing PRs.
-#
-# Usage:
-#   bot-sync.sh checkout                 # switch to the bot branch, up to date with main
-#   bot-sync.sh publish "<message>"      # commit generated files, push, open/update the PR
 set -euo pipefail
 
 BOT_BRANCH="${BOT_BRANCH:-bot/repo-sync}"
-# Every file a bot is allowed to touch. Listed once so "does the bot branch
-# still differ from main?" covers changes made by either workflow.
 BOT_FILES=(CHANGELOG.md .github/badges/entries.json .github/badges/broken-links.json)
 
 checkout() {
