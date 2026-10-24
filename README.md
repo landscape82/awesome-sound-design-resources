@@ -260,6 +260,7 @@
 
 - **[AudioSet](https://research.google.com/audioset/)** 🆓 🌐 - Large-scale audio event dataset and analysis tools.
 - **[BBC Sound Effects](https://sound-effects.bbcrewind.co.uk/)** 💰 🌐 - Archive of over 30,000 BBC sound effects, free for personal, educational and research use.
+- **[DailySounds](https://dailysounds.org/?ref=asdlist)** 🆓 🌐 - Free sound effects library for games, videos and podcasts, with commercial use allowed and credit optional.
 - **[Freesound](https://freesound.org/)** 🆓 🌐 - Collaborative database of Creative Commons-licensed audio snippets with analysis tools.
 
 ## 💎 Niche & Specialized Tools
