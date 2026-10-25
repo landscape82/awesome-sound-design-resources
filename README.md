@@ -133,6 +133,7 @@
 ## 📊 Analysis & Visualization
 
 - **[BRP-PACU](https://github.com/matthew-dews/brp-pacu)** 🆓 🖥️ - Dual-channel FFT analysis tool for measuring and equalizing PA / sound systems (archived).
+- **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/)** 🆓 🖥️ - Real-time audio spectrum analyzer with high resolution.
 - **[Praat](https://www.fon.hum.uva.nl/praat/)** 🆓 🖥️ - Software for speech analysis in phonetics.
 - **[Sonic Visualiser](https://www.sonicvisualiser.org/)** 🆓 🖥️ - Application for viewing and analyzing audio file contents.
@@ -146,6 +147,7 @@
 - **[Catia](https://github.com/falkTX/Catia)** 🆓 🖥️ - JACK patchbay with advanced connection management.
 - **[Claudia](https://github.com/falkTX/Cadence)** 🆓 🖥️ - LADISH session management tool for audio applications (part of the archived Cadence suite).
 - **[JACK Audio Connection Kit](https://jackaudio.org/)** 🆓 🖥️ - Professional sound server for low-latency audio applications.
+- **[Online Tone Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)** 🆓 🖥️ - Sound server for POSIX and Win32 systems.
 - **[QjackCtl](https://qjackctl.sourceforge.io/)** 🆓 🖥️ - Simple Qt application to control JACK sound server.
 - **[Scala](https://www.huygens-fokker.org/scala/)** 🆓 🖥️ - Software for experimenting with musical tunings, temperaments and microtonality. It is not a synthesizer itself; the tunings it produces can be used in other synthesis environments (like SuperCollider or Pd).
