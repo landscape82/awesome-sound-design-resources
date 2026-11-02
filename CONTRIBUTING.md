@@ -18,12 +18,13 @@ Before opening a PR, you can run the same checks CI runs:
 
 ```bash
 npm install
-npm run lint        # awesome-lint (format, ordering, duplicates)
-npm run lint:md      # markdownlint
-npm run lint:links   # markdown-link-check
+npm run validate    # entry format, price/platform markers, alphabetical order, duplicates, table of contents
+npm run lint:md     # markdownlint (including table-of-contents anchors)
+npm run lint:links  # markdown-link-check
+npm run lint        # awesome-lint (informational only)
 ```
 
-A weekly scheduled workflow also checks for dead links and files an issue automatically if any are found. New entries added on `main` are logged automatically to [CHANGELOG.md](CHANGELOG.md).
+`npm run validate` and markdownlint must pass for a PR to be merged. On pull requests, CI also checks every link the PR adds. A weekly scheduled workflow checks all links, files an issue automatically if any are broken, and closes it again once they pass. New entries added on `main` are logged automatically to [CHANGELOG.md](CHANGELOG.md).
 
 ## 🤝 Contributors
 

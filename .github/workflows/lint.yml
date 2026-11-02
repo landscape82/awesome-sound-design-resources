@@ -14,11 +14,14 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
 
       - name: Install tooling
         run: npm ci
+
+      - name: Validate list structure
+        run: npm run validate
 
       - name: Run markdownlint
         run: npx markdownlint README.md CONTRIBUTING.md --config .markdownlint.json
@@ -26,3 +29,37 @@ jobs:
       - name: Run awesome-lint (non-blocking)
         continue-on-error: true
         run: npx awesome-lint
+
+  new-links:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install tooling
+        run: npm ci
+
+      - name: Check links added by this PR
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          extract() { { grep -oE '\]\(https?://[^) ]+\)' || true; } | sed -E 's/^\]\(//; s/\)$//' | sort -u; }
+          git show "$BASE_SHA:README.md" | extract > base-urls.txt
+          extract < README.md > head-urls.txt
+          comm -13 base-urls.txt head-urls.txt > new-urls.txt
+          if [ ! -s new-urls.txt ]; then
+            echo "No new links in this PR."
+            exit 0
+          fi
+          echo "Checking $(wc -l < new-urls.txt | tr -d ' ') new link(s):"
+          cat new-urls.txt
+          sed 's/.*/- <&>/' new-urls.txt > new-links.md
+          npx markdown-link-check new-links.md --config .markdown-link-check.json
