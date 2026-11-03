@@ -1,56 +1,37 @@
 #!/usr/bin/env node
 import { readFileSync } from "node:fs";
+import { normalizeUrl, parseReadme } from "./parse-readme.mjs";
 
 const file = process.argv[2] ?? "README.md";
-const lines = readFileSync(file, "utf8").split("\n");
-
-const PRICE = "(?:🆓|💰)";
-const PLATFORM = "(?:🖥️|🌐|📱)";
-const MARKERS = `${PRICE}(?: ${PLATFORM})*(?: / ${PRICE}(?: ${PLATFORM})*)?`;
-const ENTRY = new RegExp(`^- \\*\\*\\[(.+?)\\]\\((\\S+?)\\)\\*\\* ${MARKERS} - \\S.*[.)]$`);
-const UNMARKED_ENTRY = /^- \*\*\[(.+?)\]\((\S+?)\)\*\* - \S.*[.)]$/;
-const UNMARKED_SECTIONS = new Set(["🔗 Related Lists"]);
+const text = readFileSync(file, "utf8");
+const lines = text.split("\n");
 
 const errors = [];
 const fail = (i, msg) => errors.push(`${file}:${i + 1}: ${msg}`);
 
-const normalizeUrl = (u) =>
-  u.toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/+$/, "");
-
-const headings = [];
+const { headings: parsedHeadings, entries, malformed } = parseReadme(text);
+const headings = parsedHeadings.map((h) => ({ level: h.level, text: h.title, line: h.line }));
 const names = new Map();
 const urls = new Map();
-let section = "";
+const sectionsWithEntries = new Set([...entries, ...malformed].sort((a, b) => a.line - b.line).map((e) => e.section));
+
+for (const m of malformed) {
+  fail(
+    m.line,
+    m.unmarked
+      ? "entry must look like `- **[Name](url)** - Description.`"
+      : "entry must look like `- **[Name](url)** 🆓 🖥️ - Description.` (price marker 🆓/💰 required, optional 🖥️ 🌐 📱, description ending in a period)",
+  );
+}
+
 let prev = null;
-
-lines.forEach((line, i) => {
-  const h = line.match(/^(#{1,6}) (.+)$/);
-  if (h) {
-    headings.push({ level: h[1].length, text: h[2].trim(), line: i });
-    section = h[2].trim();
-    prev = null;
-    return;
-  }
-  if (!line.startsWith("- **[")) return;
-
-  const unmarkedAllowed = UNMARKED_SECTIONS.has(section);
-  const m = line.match(unmarkedAllowed ? UNMARKED_ENTRY : ENTRY);
-  if (!m) {
-    fail(
-      i,
-      unmarkedAllowed
-        ? "entry must look like `- **[Name](url)** - Description.`"
-        : "entry must look like `- **[Name](url)** 🆓 🖥️ - Description.` (price marker 🆓/💰 required, optional 🖥️ 🌐 📱, description ending in a period)",
-    );
-    return;
-  }
-  const [, name, url] = m;
+for (const { name, url, section, line: i } of entries) {
   const key = name.toLowerCase();
 
-  if (prev !== null && key < prev.key) {
+  if (prev !== null && prev.section === section && key < prev.key) {
     fail(i, `"${name}" is out of alphabetical order in "${section}" (should come before "${prev.name}")`);
   }
-  prev = { key, name };
+  prev = { key, name, section };
 
   if (names.has(key)) fail(i, `duplicate entry name "${name}" (also on line ${names.get(key) + 1})`);
   else names.set(key, i);
@@ -58,7 +39,7 @@ lines.forEach((line, i) => {
   const nurl = normalizeUrl(url);
   if (urls.has(nurl)) fail(i, `duplicate URL ${url} (also on line ${urls.get(nurl) + 1})`);
   else urls.set(nurl, i);
-});
+}
 
 const tocStart = lines.findIndex((l) => l === "## Table of contents");
 if (tocStart === -1) {
@@ -87,6 +68,27 @@ if (tocStart === -1) {
       fail(got.line, `table of contents entry "${got.text}" (depth ${got.depth}) should be "${want.text}" (depth ${want.depth}) to match the headings`);
       break;
     }
+  }
+}
+
+const FORM = ".github/ISSUE_TEMPLATE/suggest-resource.yml";
+const formLines = readFileSync(FORM, "utf8").split("\n");
+const formStart = formLines.findIndex((l) => l.trim() === "id: section");
+if (formStart === -1) {
+  errors.push(`${FORM}: missing "section" dropdown`);
+} else {
+  const options = [];
+  for (let i = formStart + 1; i < formLines.length && !/^ {4}validations:/.test(formLines[i]); i++) {
+    const o = formLines[i].match(/^ {8}- "(.+)"$/);
+    if (o && o[1] !== "Other / not sure") options.push(o[1]);
+  }
+  const sections = [...sectionsWithEntries];
+  const missing = sections.filter((s) => !options.includes(s));
+  const extra = options.filter((o) => !sections.includes(o));
+  if (missing.length) errors.push(`${FORM}: section dropdown is missing ${missing.map((s) => `"${s}"`).join(", ")}`);
+  if (extra.length) errors.push(`${FORM}: section dropdown lists ${extra.map((s) => `"${s}"`).join(", ")}, which has no entries in ${file}`);
+  if (!missing.length && !extra.length && options.join("\n") !== sections.join("\n")) {
+    errors.push(`${FORM}: section dropdown should list sections in README order`);
   }
 }
 
