@@ -54,6 +54,7 @@ const pageUrl = new URL(base, Astro.site).href;
           </p>
         </div>
         <div class="hero-actions">
+          <a class="btn" href={`${base}rss.xml`} title="New tools as an RSS feed"><Rss size={16} aria-hidden="true" /> RSS</a>
           <a class="btn" href={data.repo} target="_blank" rel="noopener"><GitHubMark size={16} /> GitHub</a>
           <a class="btn btn-primary" href={`${data.repo}/issues/new?template=suggest-resource.yml`} target="_blank" rel="noopener"><Plus size={16} aria-hidden="true" /> Suggest a resource</a>
         </div>
