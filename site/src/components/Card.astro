@@ -1,0 +1,46 @@
+---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import { host, inline } from "../lib/data.js";
+import { PLATFORMS } from "../lib/icons.js";
+
+const { entry, category } = Astro.props;
+const PRICE = { free: "Free", paid: "Paid" };
+const search = [entry.name, entry.description, host(entry.url), category].join(" ").toLowerCase();
+---
+
+<article
+  class="card"
+  data-price={entry.prices.join(" ")}
+  data-platform={entry.platforms.join(" ")}
+  data-search={search}
+>
+  <h4 class="card-title">
+    <a href={entry.url} target="_blank" rel="noopener">
+      {entry.name}<ArrowUpRight class="ext" size={14} aria-hidden="true" />
+    </a>
+  </h4>
+  <p class="card-desc" set:html={inline(entry.description)} />
+  <footer class="card-meta">
+    {
+      entry.variants.map((v) => (
+        <span class={`tag tag-${v.price}`}>
+          {PRICE[v.price]}
+          {v.platforms.length > 0 && (
+            <span class="tag-platforms">
+              {v.platforms.map((p) => {
+                const Icon = PLATFORMS[p].Icon;
+                return (
+                  <span title={PLATFORMS[p].label}>
+                    <Icon size={13} aria-hidden="true" />
+                    <span class="visually-hidden">{PLATFORMS[p].label}</span>
+                  </span>
+                );
+              })}
+            </span>
+          )}
+        </span>
+      ))
+    }
+    <span class="host">{host(entry.url)}</span>
+  </footer>
+</article>
