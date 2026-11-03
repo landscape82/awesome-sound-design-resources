@@ -35,6 +35,15 @@ jobs:
           set -e
           { grep -E '^[[:space:]]*\[✖\]' link-check-output.txt || true; } \
             | awk -F ' → ' '!seen[$1]++' > broken-links.txt
+          if [ -s broken-links.txt ]; then
+            echo "Re-checking $(wc -l < broken-links.txt | tr -d ' ') failed link(s) in 2 minutes:"
+            cat broken-links.txt
+            sleep 120
+            sed -E 's/^[[:space:]]*\[✖\][[:space:]]*([^ ]+).*$/- <\1>/' broken-links.txt > recheck.md
+            npx markdown-link-check recheck.md --config .markdown-link-check.json --verbose > recheck-output.txt 2>&1 || true
+            { grep -E '^[[:space:]]*\[✖\]' recheck-output.txt || true; } \
+              | awk -F ' → ' '!seen[$1]++' > broken-links.txt
+          fi
           broken=$(wc -l < broken-links.txt | tr -d ' ')
           echo "broken=${broken:-0}" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ] && [ "${broken:-0}" -eq 0 ]; then

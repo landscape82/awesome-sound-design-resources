@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -25,10 +28,6 @@ jobs:
 
       - name: Run markdownlint
         run: npx markdownlint README.md CONTRIBUTING.md --config .markdownlint.json
-
-      - name: Run awesome-lint (non-blocking)
-        continue-on-error: true
-        run: npx awesome-lint
 
   new-links:
     if: github.event_name == 'pull_request'

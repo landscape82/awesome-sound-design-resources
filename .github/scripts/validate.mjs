@@ -20,6 +20,7 @@ const normalizeUrl = (u) =>
 const headings = [];
 const names = new Map();
 const urls = new Map();
+const sectionsWithEntries = new Set();
 let section = "";
 let prev = null;
 
@@ -32,6 +33,7 @@ lines.forEach((line, i) => {
     return;
   }
   if (!line.startsWith("- **[")) return;
+  sectionsWithEntries.add(section);
 
   const unmarkedAllowed = UNMARKED_SECTIONS.has(section);
   const m = line.match(unmarkedAllowed ? UNMARKED_ENTRY : ENTRY);
@@ -87,6 +89,27 @@ if (tocStart === -1) {
       fail(got.line, `table of contents entry "${got.text}" (depth ${got.depth}) should be "${want.text}" (depth ${want.depth}) to match the headings`);
       break;
     }
+  }
+}
+
+const FORM = ".github/ISSUE_TEMPLATE/suggest-resource.yml";
+const formLines = readFileSync(FORM, "utf8").split("\n");
+const formStart = formLines.findIndex((l) => l.trim() === "id: section");
+if (formStart === -1) {
+  errors.push(`${FORM}: missing "section" dropdown`);
+} else {
+  const options = [];
+  for (let i = formStart + 1; i < formLines.length && !/^ {4}validations:/.test(formLines[i]); i++) {
+    const o = formLines[i].match(/^ {8}- "(.+)"$/);
+    if (o && o[1] !== "Other / not sure") options.push(o[1]);
+  }
+  const sections = [...sectionsWithEntries];
+  const missing = sections.filter((s) => !options.includes(s));
+  const extra = options.filter((o) => !sections.includes(o));
+  if (missing.length) errors.push(`${FORM}: section dropdown is missing ${missing.map((s) => `"${s}"`).join(", ")}`);
+  if (extra.length) errors.push(`${FORM}: section dropdown lists ${extra.map((s) => `"${s}"`).join(", ")}, which has no entries in ${file}`);
+  if (!missing.length && !extra.length && options.join("\n") !== sections.join("\n")) {
+    errors.push(`${FORM}: section dropdown should list sections in README order`);
   }
 }
 
