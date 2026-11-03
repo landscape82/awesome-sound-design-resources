@@ -72,10 +72,11 @@ body:
     id: price
     attributes:
       label: Price
-      description: "💰 also covers free tiers with significant limits (demo, trial, non-commercial use, revenue cap)."
+      description: "Is it free or paid? 💰 also covers free tiers with significant limits (demo, trial, non-commercial use, revenue cap)."
       options:
         - "🆓 Free / open source"
         - "💰 Paid or freemium"
+        - "🆓 / 💰 Free on some platforms, paid on others (describe below)"
     validations:
       required: true
   - type: checkboxes
