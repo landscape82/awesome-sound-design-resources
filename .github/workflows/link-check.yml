@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   link-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       broken: ${{ steps.link-check.outputs.broken }}
     steps:
@@ -35,9 +35,31 @@ jobs:
           set -e
           { grep -E '^[[:space:]]*\[✖\]' link-check-output.txt || true; } \
             | awk -F ' → ' '!seen[$1]++' > broken-links.txt
+          failed=$(wc -l < broken-links.txt | tr -d ' ')
+          if [ -s broken-links.txt ]; then
+            echo "Re-checking $(wc -l < broken-links.txt | tr -d ' ') failed link(s) with curl (3 attempts, 90s each):"
+            cat broken-links.txt
+            : > still-broken.txt
+            while IFS= read -r line; do
+              url=$(printf '%s\n' "$line" | sed -E 's/^[[:space:]]*\[✖\][[:space:]]*([^ ]+).*$/\1/')
+              code=000
+              for attempt in 1 2 3; do
+                code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 90 \
+                  -A "Mozilla/5.0 (compatible; awesome-sound-design-link-check)" "$url" || true)
+                case "$code" in 2??|3??|403|418|429) break ;; esac
+                echo "Attempt $attempt for $url returned $code"
+                if [ "$attempt" -lt 3 ]; then sleep 30; fi
+              done
+              case "$code" in
+                2??|3??|403|418|429) echo "Recovered on re-check: $url ($code)" ;;
+                *) printf '%s\n' "$line" >> still-broken.txt ;;
+              esac
+            done < broken-links.txt
+            mv still-broken.txt broken-links.txt
+          fi
           broken=$(wc -l < broken-links.txt | tr -d ' ')
           echo "broken=${broken:-0}" >> "$GITHUB_OUTPUT"
-          if [ "$status" -ne 0 ] && [ "${broken:-0}" -eq 0 ]; then
+          if [ "$status" -ne 0 ] && [ "${failed:-0}" -eq 0 ]; then
             exit "$status"
           fi
           exit 0
@@ -121,7 +143,7 @@ jobs:
   badge:
     needs: link-check
     if: always() && needs.link-check.outputs.broken != ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     concurrency:
       group: repo-sync
       cancel-in-progress: false

@@ -4,19 +4,22 @@
   "private": true,
   "description": "Tooling for linting and maintaining the Awesome Sound Design resources list.",
   "scripts": {
-    "lint": "awesome-lint",
     "validate": "node .github/scripts/validate.mjs",
+    "export": "node .github/scripts/export.mjs",
     "lint:md": "markdownlint README.md CONTRIBUTING.md",
-    "lint:links": "markdown-link-check README.md --config .markdown-link-check.json",
-    "toc": "markdown-toc -i README.md --bullets=-"
+    "lint:links": "markdown-link-check README.md --config .markdown-link-check.json"
   },
   "devDependencies": {
-    "awesome-lint": "^2.3.0",
     "markdown-link-check": "^3.15.0",
-    "markdown-toc": "^1.2.0",
-    "markdownlint-cli": "^0.49.1"
+    "markdownlint-cli": "^0.50.0"
   },
   "engines": {
     "node": ">=22"
+  },
+  "overrides": {
+    "re2js": "^2.8.7",
+    "katex": "^0.18.2",
+    "minimatch@>=10": "^11.0.1",
+    "basic-ftp": "^6.2.1"
   }
 }

@@ -53,7 +53,7 @@ def main():
     server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
     repo = os.environ.get("GITHUB_REPOSITORY", "landscape82/awesome-sound-design-resources")
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    block = f"## {stamp}\n\nChanges: {server}/{repo}/compare/{last[:12]}...{target[:12]}\n\n" + "\n".join(added)
+    block = f"## {stamp}\n\nCommit: {server}/{repo}/commit/{target}\n\n" + "\n".join(added) + "\n"
     text = text.replace(START, f"{START}\n{block}", 1)
     open(CHANGELOG, "w", encoding="utf-8").write(set_marker(text))
     print(f"Logged {len(added)} new entr{'y' if len(added) == 1 else 'ies'}.")
