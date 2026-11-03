@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "README.md"
+      - "CHANGELOG.md"
       - "site/**"
       - ".github/scripts/parse-readme.mjs"
       - ".github/workflows/site.yml"
@@ -12,9 +13,12 @@ on:
     branches: [main]
     paths:
       - "README.md"
+      - "CHANGELOG.md"
       - "site/**"
       - ".github/scripts/parse-readme.mjs"
       - ".github/workflows/site.yml"
+  schedule:
+    - cron: "30 7 * * *"
   workflow_dispatch: {}
 
 permissions:

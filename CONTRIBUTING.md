@@ -28,7 +28,7 @@ npm run lint:links  # markdown-link-check
 
 ## Website
 
-The list is also published as a website on GitHub Pages, generated from `README.md` - there's nothing extra to update when you add an entry. To preview it locally:
+The list is also published as a website on GitHub Pages, generated from `README.md` - there's nothing extra to update when you add an entry. Newly added entries (from [CHANGELOG.md](CHANGELOG.md)) also appear in the site's RSS feed. The social preview image `site/public/og.png` is rendered from `site/og-image.html` (open it in a browser at 1200×630 and take a screenshot to update it). To preview it locally:
 
 ```bash
 cd site
