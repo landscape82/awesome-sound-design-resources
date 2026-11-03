@@ -18,7 +18,7 @@ Before opening a PR, you can run the same checks CI runs:
 
 ```bash
 npm install
-npm run validate    # entry format, price/platform markers, alphabetical order, duplicates, table of contents
+npm run validate    # entry format, price/platform markers, alphabetical order, duplicates, table of contents, issue form sections
 npm run lint:md     # markdownlint (including table-of-contents anchors)
 npm run lint:links  # markdown-link-check
 ```
