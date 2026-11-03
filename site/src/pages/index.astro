@@ -1,5 +1,11 @@
 ---
+import Moon from "@lucide/astro/icons/moon";
+import Plus from "@lucide/astro/icons/plus";
+import Search from "@lucide/astro/icons/search";
+import Sun from "@lucide/astro/icons/sun";
 import Card from "../components/Card.astro";
+import GitHubMark from "../components/GitHubMark.astro";
+import { PLATFORMS } from "../lib/icons.js";
 import { inline, loadData } from "../lib/data.js";
 import "../styles/global.css";
 
@@ -38,8 +44,8 @@ const description = data.tagline.replace(/ - /g, " – ");
           </p>
         </div>
         <div class="hero-actions">
-          <a class="btn" href={data.repo} target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-primary" href={`${data.repo}/issues/new?template=suggest-resource.yml`} target="_blank" rel="noopener">Suggest a resource</a>
+          <a class="btn" href={data.repo} target="_blank" rel="noopener"><GitHubMark size={16} /> GitHub</a>
+          <a class="btn btn-primary" href={`${data.repo}/issues/new?template=suggest-resource.yml`} target="_blank" rel="noopener"><Plus size={16} aria-hidden="true" /> Suggest a resource</a>
         </div>
       </div>
     </header>
@@ -48,6 +54,7 @@ const description = data.tagline.replace(/ - /g, " – ");
       <div class="wrap toolbar-inner">
         <label class="search">
           <span class="visually-hidden">Search tools</span>
+          <Search class="search-icon" size={18} aria-hidden="true" />
           <input id="q" type="search" placeholder="Search tools… ( / )" autocomplete="off" />
         </label>
         <div class="chips" role="group" aria-label="Price">
@@ -55,13 +62,20 @@ const description = data.tagline.replace(/ - /g, " – ");
           <button type="button" class="chip" data-group="price" data-value="paid" aria-pressed="false">Paid</button>
         </div>
         <div class="chips" role="group" aria-label="Platform">
-          <button type="button" class="chip" data-group="platform" data-value="desktop" aria-pressed="false">🖥️ Desktop</button>
-          <button type="button" class="chip" data-group="platform" data-value="web" aria-pressed="false">🌐 Web</button>
-          <button type="button" class="chip" data-group="platform" data-value="mobile" aria-pressed="false">📱 Mobile</button>
+          {
+            Object.entries(PLATFORMS).map(([value, { Icon, label }]) => (
+              <button type="button" class="chip" data-group="platform" data-value={value} aria-pressed="false">
+                <Icon size={15} aria-hidden="true" /> {label}
+              </button>
+            ))
+          }
         </div>
         <span id="count" class="count" aria-live="polite">{data.total} tools</span>
         <button type="button" id="reset" class="link-btn" hidden>Clear filters</button>
-        <button type="button" id="theme" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+        <button type="button" id="theme" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <Sun class="icon-sun" size={18} aria-hidden="true" />
+          <Moon class="icon-moon" size={18} aria-hidden="true" />
+        </button>
       </div>
     </div>
 
@@ -128,8 +142,9 @@ const description = data.tagline.replace(/ - /g, " – ");
     <footer class="site-footer">
       <div class="wrap">
         <p>
-          🆓 free / open source · 💰 paid, or free only with significant limits · 🖥️ desktop · 🌐 web · 📱 mobile.
-          Platform icons are shown for end-user applications only.
+          <strong>Free</strong> = free / open source · <strong>Paid</strong> = paid, or free only with significant limits
+          (demo, trial, non-commercial use, revenue cap). Platform icons (desktop, web, mobile) are shown for end-user
+          applications only.
         </p>
         <p>
           Generated from the <a href={`${data.repo}#readme`}>README</a> of

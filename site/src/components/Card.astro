@@ -1,9 +1,10 @@
 ---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
 import { host, inline } from "../lib/data.js";
+import { PLATFORMS } from "../lib/icons.js";
 
 const { entry, category } = Astro.props;
 const PRICE = { free: "Free", paid: "Paid" };
-const PLATFORM = { desktop: { icon: "🖥️", label: "Desktop" }, web: { icon: "🌐", label: "Web" }, mobile: { icon: "📱", label: "Mobile" } };
 const search = [entry.name, entry.description, host(entry.url), category].join(" ").toLowerCase();
 ---
 
@@ -14,7 +15,9 @@ const search = [entry.name, entry.description, host(entry.url), category].join("
   data-search={search}
 >
   <h4 class="card-title">
-    <a href={entry.url} target="_blank" rel="noopener">{entry.name}</a>
+    <a href={entry.url} target="_blank" rel="noopener">
+      {entry.name}<ArrowUpRight class="ext" size={14} aria-hidden="true" />
+    </a>
   </h4>
   <p class="card-desc" set:html={inline(entry.description)} />
   <footer class="card-meta">
@@ -23,8 +26,16 @@ const search = [entry.name, entry.description, host(entry.url), category].join("
         <span class={`tag tag-${v.price}`}>
           {PRICE[v.price]}
           {v.platforms.length > 0 && (
-            <span class="tag-platforms" title={v.platforms.map((p) => PLATFORM[p].label).join(", ")}>
-              {v.platforms.map((p) => PLATFORM[p].icon).join(" ")}
+            <span class="tag-platforms">
+              {v.platforms.map((p) => {
+                const Icon = PLATFORMS[p].Icon;
+                return (
+                  <span title={PLATFORMS[p].label}>
+                    <Icon size={13} aria-hidden="true" />
+                    <span class="visually-hidden">{PLATFORMS[p].label}</span>
+                  </span>
+                );
+              })}
             </span>
           )}
         </span>

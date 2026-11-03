@@ -443,3 +443,74 @@ code {
 [data-theme="light"] .btn-primary {
   color: #fff;
 }
+
+svg.lucide {
+  flex-shrink: 0;
+  vertical-align: -0.15em;
+}
+
+.btn,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.search input {
+  padding-left: 40px;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+}
+
+.icon-moon,
+[data-theme="light"] .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .icon-moon {
+  display: block;
+}
+
+.card-title .ext {
+  margin-left: 4px;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.card:hover .card-title .ext,
+.card-title a:focus-visible .ext {
+  opacity: 1;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tag-platforms {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 2px;
+}
+
+.tag-platforms > span {
+  display: inline-flex;
+}
