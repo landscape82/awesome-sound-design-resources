@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   link-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       broken: ${{ steps.link-check.outputs.broken }}
     steps:
@@ -143,7 +143,7 @@ jobs:
   badge:
     needs: link-check
     if: always() && needs.link-check.outputs.broken != ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     concurrency:
       group: repo-sync
       cancel-in-progress: false
