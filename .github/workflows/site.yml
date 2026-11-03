@@ -17,6 +17,8 @@ on:
       - "site/**"
       - ".github/scripts/parse-readme.mjs"
       - ".github/workflows/site.yml"
+  schedule:
+    - cron: "30 7 * * *"
   workflow_dispatch: {}
 
 permissions:
