@@ -1,0 +1,237 @@
+---
+import Card from "../components/Card.astro";
+import { inline, loadData } from "../lib/data.js";
+import "../styles/global.css";
+
+const data = loadData();
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const description = data.tagline.replace(/ - /g, " – ");
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{data.title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={data.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem("theme");
+        if (saved) document.documentElement.dataset.theme = saved;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#list">Skip to the list</a>
+    <header class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <h1><span aria-hidden="true">{data.emoji}</span> {data.title}</h1>
+          <p class="tagline">{description}</p>
+          <p class="stats">
+            <strong>{data.total}</strong> tools · <strong>{data.categories.length}</strong> categories
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href={data.repo} target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href={`${data.repo}/issues/new?template=suggest-resource.yml`} target="_blank" rel="noopener">Suggest a resource</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="toolbar" role="search">
+      <div class="wrap toolbar-inner">
+        <label class="search">
+          <span class="visually-hidden">Search tools</span>
+          <input id="q" type="search" placeholder="Search tools… ( / )" autocomplete="off" />
+        </label>
+        <div class="chips" role="group" aria-label="Price">
+          <button type="button" class="chip" data-group="price" data-value="free" aria-pressed="false">Free</button>
+          <button type="button" class="chip" data-group="price" data-value="paid" aria-pressed="false">Paid</button>
+        </div>
+        <div class="chips" role="group" aria-label="Platform">
+          <button type="button" class="chip" data-group="platform" data-value="desktop" aria-pressed="false">🖥️ Desktop</button>
+          <button type="button" class="chip" data-group="platform" data-value="web" aria-pressed="false">🌐 Web</button>
+          <button type="button" class="chip" data-group="platform" data-value="mobile" aria-pressed="false">📱 Mobile</button>
+        </div>
+        <span id="count" class="count" aria-live="polite">{data.total} tools</span>
+        <button type="button" id="reset" class="link-btn" hidden>Clear filters</button>
+        <button type="button" id="theme" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+      </div>
+    </div>
+
+    <div class="wrap layout">
+      <nav class="sidebar" aria-label="Categories">
+        <ul>
+          {
+            data.categories.map((c) => (
+              <li data-nav={c.slug}>
+                <a href={`#${c.slug}`}>
+                  <span aria-hidden="true">{c.emoji}</span> {c.name}
+                  <span class="nav-count">{c.count}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <main id="list">
+        {
+          data.categories.map((c) => (
+            <section class="category" id={c.slug} data-section>
+              <h2><span aria-hidden="true">{c.emoji}</span> {c.name}</h2>
+              {c.entries.length > 0 && (
+                <div class="grid">
+                  {c.entries.map((e) => (
+                    <Card entry={e} category={c.name} />
+                  ))}
+                </div>
+              )}
+              {c.subcategories.map((s) => (
+                <div class="subcategory" id={s.slug} data-section>
+                  <h3><span aria-hidden="true">{s.emoji}</span> {s.name}</h3>
+                  <div class="grid">
+                    {s.entries.map((e) => (
+                      <Card entry={e} category={`${c.name} ${s.name}`} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </section>
+          ))
+        }
+        <p id="empty" class="empty" hidden>No tools match these filters.</p>
+
+        {
+          data.related.length > 0 && (
+            <section class="related">
+              <h2>🔗 Related lists</h2>
+              <ul>
+                {data.related.map((r) => (
+                  <li>
+                    <a href={r.url} target="_blank" rel="noopener">{r.name}</a> – <span set:html={inline(r.description)} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          🆓 free / open source · 💰 paid, or free only with significant limits · 🖥️ desktop · 🌐 web · 📱 mobile.
+          Platform icons are shown for end-user applications only.
+        </p>
+        <p>
+          Generated from the <a href={`${data.repo}#readme`}>README</a> of
+          <a href={data.repo}>landscape82/awesome-sound-design-resources</a>. Missing something?
+          <a href={`${data.repo}/blob/main/CONTRIBUTING.md`}>Contribute</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const q = document.getElementById("q");
+      const cards = [...document.querySelectorAll(".card")];
+      const sections = [...document.querySelectorAll("[data-section]")];
+      const chips = [...document.querySelectorAll(".chip")];
+      const count = document.getElementById("count");
+      const empty = document.getElementById("empty");
+      const reset = document.getElementById("reset");
+      const selected = { price: new Set(), platform: new Set() };
+
+      const params = new URLSearchParams(location.search);
+      q.value = params.get("q") ?? "";
+      for (const group of ["price", "platform"]) {
+        for (const v of (params.get(group) ?? "").split(",").filter(Boolean)) selected[group].add(v);
+      }
+
+      const matches = (card, terms) => {
+        for (const group of ["price", "platform"]) {
+          if (!selected[group].size) continue;
+          const values = card.dataset[group].split(" ");
+          if (!values.some((v) => selected[group].has(v))) return false;
+        }
+        return terms.every((t) => card.dataset.search.includes(t));
+      };
+
+      function apply() {
+        const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+        let shown = 0;
+        for (const card of cards) {
+          const ok = matches(card, terms);
+          card.hidden = !ok;
+          if (ok) shown++;
+        }
+        for (const section of sections.slice().reverse()) {
+          section.hidden = !section.querySelector(".card:not([hidden])");
+        }
+        for (const li of document.querySelectorAll("[data-nav]")) {
+          const section = document.getElementById(li.dataset.nav);
+          const n = section.querySelectorAll(".card:not([hidden])").length;
+          li.hidden = n === 0;
+          li.querySelector(".nav-count").textContent = String(n);
+        }
+        for (const chip of chips) {
+          chip.setAttribute("aria-pressed", String(selected[chip.dataset.group].has(chip.dataset.value)));
+        }
+        const filtered = terms.length > 0 || selected.price.size > 0 || selected.platform.size > 0;
+        count.textContent = filtered ? `${shown} of ${cards.length} tools` : `${cards.length} tools`;
+        empty.hidden = shown > 0;
+        reset.hidden = !filtered;
+
+        const next = new URLSearchParams();
+        if (q.value.trim()) next.set("q", q.value.trim());
+        for (const group of ["price", "platform"]) {
+          if (selected[group].size) next.set(group, [...selected[group]].join(","));
+        }
+        const search = next.toString();
+        history.replaceState(null, "", search ? `?${search}${location.hash}` : location.pathname + location.hash);
+      }
+
+      q.addEventListener("input", apply);
+      for (const chip of chips) {
+        chip.addEventListener("click", () => {
+          const set = selected[chip.dataset.group];
+          const v = chip.dataset.value;
+          if (set.has(v)) set.delete(v);
+          else set.add(v);
+          apply();
+        });
+      }
+      reset.addEventListener("click", () => {
+        q.value = "";
+        selected.price.clear();
+        selected.platform.clear();
+        apply();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement !== q) {
+          e.preventDefault();
+          q.focus();
+        } else if (e.key === "Escape" && document.activeElement === q) {
+          q.value = "";
+          apply();
+        }
+      });
+      document.getElementById("theme").addEventListener("click", () => {
+        const root = document.documentElement;
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        try {
+          localStorage.setItem("theme", root.dataset.theme);
+        } catch {}
+      });
+
+      apply();
+    </script>
+  </body>
+</html>

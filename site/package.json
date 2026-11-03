@@ -1,0 +1,17 @@
+{
+  "name": "awesome-sound-design-site",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Pages site generated from the Awesome Sound Design README.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "dependencies": {
+    "astro": "^7.4.5"
+  }
+}

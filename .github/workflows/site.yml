@@ -1,0 +1,33 @@
+name: Site
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "site/**"
+      - ".github/scripts/parse-readme.mjs"
+      - ".github/workflows/site.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  site-build:
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Build site
+        working-directory: site
+        run: npm run build

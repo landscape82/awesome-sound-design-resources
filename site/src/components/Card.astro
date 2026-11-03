@@ -1,0 +1,35 @@
+---
+import { host, inline } from "../lib/data.js";
+
+const { entry, category } = Astro.props;
+const PRICE = { free: "Free", paid: "Paid" };
+const PLATFORM = { desktop: { icon: "🖥️", label: "Desktop" }, web: { icon: "🌐", label: "Web" }, mobile: { icon: "📱", label: "Mobile" } };
+const search = [entry.name, entry.description, host(entry.url), category].join(" ").toLowerCase();
+---
+
+<article
+  class="card"
+  data-price={entry.prices.join(" ")}
+  data-platform={entry.platforms.join(" ")}
+  data-search={search}
+>
+  <h4 class="card-title">
+    <a href={entry.url} target="_blank" rel="noopener">{entry.name}</a>
+  </h4>
+  <p class="card-desc" set:html={inline(entry.description)} />
+  <footer class="card-meta">
+    {
+      entry.variants.map((v) => (
+        <span class={`tag tag-${v.price}`}>
+          {PRICE[v.price]}
+          {v.platforms.length > 0 && (
+            <span class="tag-platforms" title={v.platforms.map((p) => PLATFORM[p].label).join(", ")}>
+              {v.platforms.map((p) => PLATFORM[p].icon).join(" ")}
+            </span>
+          )}
+        </span>
+      ))
+    }
+    <span class="host">{host(entry.url)}</span>
+  </footer>
+</article>

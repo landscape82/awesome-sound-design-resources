@@ -26,6 +26,16 @@ npm run lint:links  # markdown-link-check
 
 `npm run validate` and markdownlint must pass for a PR to be merged. On pull requests, CI also checks every link the PR adds. A weekly scheduled workflow checks all links, files an issue automatically if any are broken, and closes it again once they pass. New entries added on `main` are logged automatically to [CHANGELOG.md](CHANGELOG.md).
 
+## Website
+
+The list is also published as a website on GitHub Pages, generated from `README.md` - there's nothing extra to update when you add an entry. To preview it locally:
+
+```bash
+cd site
+npm install
+npm run dev
+```
+
 ## 🤝 Contributors
 
 Thanks to all these wonderful people for improving and maintaining this awesome list! 🎧
