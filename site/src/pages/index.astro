@@ -1,5 +1,7 @@
 ---
 import Moon from "@lucide/astro/icons/moon";
+import Rss from "@lucide/astro/icons/rss";
+import Shuffle from "@lucide/astro/icons/shuffle";
 import Plus from "@lucide/astro/icons/plus";
 import Search from "@lucide/astro/icons/search";
 import Sun from "@lucide/astro/icons/sun";
@@ -12,6 +14,7 @@ import "../styles/global.css";
 const data = loadData();
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const description = data.tagline.replace(/ - /g, " – ");
+const pageUrl = new URL(base, Astro.site).href;
 ---
 
 <!doctype html>
@@ -24,6 +27,13 @@ const description = data.tagline.replace(/ - /g, " – ");
     <meta property="og:title" content={data.title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={`${pageUrl}og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="alternate" type="application/rss+xml" title={`${data.title} - new tools`} href={`${base}rss.xml`} />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
     <script is:inline>
       try {
@@ -71,6 +81,7 @@ const description = data.tagline.replace(/ - /g, " – ");
           }
         </div>
         <span id="count" class="count" aria-live="polite">{data.total} tools</span>
+        <button type="button" id="random" class="chip" title="Jump to a random tool"><Shuffle size={15} aria-hidden="true" /> Random</button>
         <button type="button" id="reset" class="link-btn" hidden>Clear filters</button>
         <button type="button" id="theme" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
           <Sun class="icon-sun" size={18} aria-hidden="true" />
@@ -149,7 +160,8 @@ const description = data.tagline.replace(/ - /g, " – ");
         <p>
           Generated from the <a href={`${data.repo}#readme`}>README</a> of
           <a href={data.repo}>landscape82/awesome-sound-design-resources</a>. Missing something?
-          <a href={`${data.repo}/blob/main/CONTRIBUTING.md`}>Contribute</a>.
+          <a href={`${data.repo}/blob/main/CONTRIBUTING.md`}>Contribute</a>. New tools are announced in the
+          <a class="rss" href={`${base}rss.xml`}><Rss size={14} aria-hidden="true" /> RSS feed</a>.
         </p>
       </div>
     </footer>
@@ -237,6 +249,16 @@ const description = data.tagline.replace(/ - /g, " – ");
           q.value = "";
           apply();
         }
+      });
+      document.getElementById("random").addEventListener("click", () => {
+        const visible = cards.filter((c) => !c.hidden);
+        if (!visible.length) return;
+        const card = visible[Math.floor(Math.random() * visible.length)];
+        for (const c of cards) c.classList.remove("picked");
+        card.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+        card.classList.add("picked");
+        card.querySelector(".card-title a").focus({ preventScroll: true });
+        setTimeout(() => card.classList.remove("picked"), 2400);
       });
       document.getElementById("theme").addEventListener("click", () => {
         const root = document.documentElement;
