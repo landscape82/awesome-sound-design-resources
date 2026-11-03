@@ -20,6 +20,7 @@ Before opening a PR, you can run the same checks CI runs:
 npm install
 npm run validate    # entry format, price/platform markers, alphabetical order, duplicates, table of contents, issue form sections
 npm run lint:md     # markdownlint (including table-of-contents anchors)
+npm run export      # print the list as JSON (categories, entries, related lists), used by the website
 npm run lint:links  # markdown-link-check
 ```
 
