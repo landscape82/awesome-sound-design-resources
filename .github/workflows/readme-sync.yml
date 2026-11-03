@@ -1,4 +1,4 @@
-name: README Sync (changelog + entries badge)
+name: README Sync (changelog + entries and categories badges)
 
 on:
   push:
@@ -37,8 +37,16 @@ jobs:
           {"schemaVersion":1,"label":"list entries","message":"${count}","color":"blue"}
           EOF
 
+      - name: Generate categories-count badge
+        run: |
+          set -euo pipefail
+          count=$(grep -E '^## ' README.md | grep -cvE '^## (Table of contents|🔗 Related Lists|🤝 Contributing)$')
+          cat > .github/badges/categories.json <<EOF
+          {"schemaVersion":1,"label":"categories","message":"${count}","color":"blueviolet"}
+          EOF
+
       - name: Open or update bot PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          .github/scripts/bot-sync.sh publish "chore: sync changelog and entries badge"
+          .github/scripts/bot-sync.sh publish "chore: sync changelog and list badges"

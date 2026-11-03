@@ -2,7 +2,7 @@
 set -euo pipefail
 
 BOT_BRANCH="${BOT_BRANCH:-bot/repo-sync}"
-BOT_FILES=(CHANGELOG.md .github/badges/entries.json .github/badges/broken-links.json)
+BOT_FILES=(CHANGELOG.md .github/badges/entries.json .github/badges/categories.json .github/badges/broken-links.json)
 
 checkout() {
   git config user.name "github-actions[bot]"
