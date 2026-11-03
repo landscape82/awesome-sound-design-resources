@@ -6,7 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the suggestion! Please check [CONTRIBUTING.md](https://github.com/landscape82/awesome-sound-design-resources/blob/main/CONTRIBUTING.md) and make sure the resource isn't already in the list.
+        Thanks for the suggestion! Please make sure the resource isn't already in the list.
+
+        Comfortable with pull requests? You can add the entry to `README.md` yourself - see [CONTRIBUTING.md](https://github.com/landscape82/awesome-sound-design-resources/blob/main/CONTRIBUTING.md) for the format.
   - type: input
     id: name
     attributes:
@@ -62,6 +64,7 @@ body:
         - "🔮 Psychoacoustics & Perception"
         - "🧪 Research & Academic Tools"
         - "🕹️ Unconventional Interfaces"
+        - "🔗 Related Lists"
         - "Other / not sure"
     validations:
       required: true
@@ -69,10 +72,11 @@ body:
     id: price
     attributes:
       label: Price
-      description: "💰 also covers free tiers with significant limits (demo, trial, non-commercial use, revenue cap)."
+      description: "Is it free or paid? 💰 also covers free tiers with significant limits (demo, trial, non-commercial use, revenue cap)."
       options:
         - "🆓 Free / open source"
         - "💰 Paid or freemium"
+        - "🆓 / 💰 Free on some platforms, paid on others (describe below)"
     validations:
       required: true
   - type: checkboxes
@@ -101,7 +105,9 @@ body:
     attributes:
       label: Checklist
       options:
-        - label: It's free or open source and actively maintained (paid / freemium tools are OK if marked 💰)
+        - label: It's actively maintained
+          required: true
+        - label: If it's paid or freemium, I selected 💰 above
           required: true
         - label: It's genuinely useful for sound design / audio production / music creation
           required: true
