@@ -7,13 +7,11 @@
     "lint": "awesome-lint",
     "validate": "node .github/scripts/validate.mjs",
     "lint:md": "markdownlint README.md CONTRIBUTING.md",
-    "lint:links": "markdown-link-check README.md --config .markdown-link-check.json",
-    "toc": "markdown-toc -i README.md --bullets=-"
+    "lint:links": "markdown-link-check README.md --config .markdown-link-check.json"
   },
   "devDependencies": {
     "awesome-lint": "^2.3.0",
     "markdown-link-check": "^3.15.0",
-    "markdown-toc": "^1.2.0",
     "markdownlint-cli": "^0.50.0"
   },
   "engines": {
