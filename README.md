@@ -136,7 +136,6 @@
 
 - **[AudioLens](https://github.com/SimZhou/vscode-audiolens)** 🆓 🖥️ - VS Code audio viewer with multi-channel waveforms, spectrograms, and selection analysis for inspecting audio files and raw PCM.
 - **[BRP-PACU](https://github.com/matthew-dews/brp-pacu)** 🆓 🖥️ - Dual-channel FFT analysis tool for measuring and equalizing PA / sound systems (archived).
-- **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/)** 🆓 🖥️ - Real-time audio spectrum analyzer with high resolution.
 - **[Praat](https://www.fon.hum.uva.nl/praat/)** 🆓 🖥️ - Software for speech analysis in phonetics.
 - **[Sonic Visualiser](https://www.sonicvisualiser.org/)** 🆓 🖥️ - Application for viewing and analyzing audio file contents.
@@ -150,7 +149,6 @@
 - **[Catia](https://github.com/falkTX/Catia)** 🆓 🖥️ - JACK patchbay with advanced connection management.
 - **[Claudia](https://github.com/falkTX/Cadence)** 🆓 🖥️ - LADISH session management tool for audio applications (part of the archived Cadence suite).
 - **[JACK Audio Connection Kit](https://jackaudio.org/)** 🆓 🖥️ - Professional sound server for low-latency audio applications.
-- **[Online Tone Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)** 🆓 🖥️ - Sound server for POSIX and Win32 systems.
 - **[QjackCtl](https://qjackctl.sourceforge.io/)** 🆓 🖥️ - Simple Qt application to control JACK sound server.
 - **[Scala](https://www.huygens-fokker.org/scala/)** 🆓 🖥️ - Software for experimenting with musical tunings, temperaments and microtonality. It is not a synthesizer itself; the tunings it produces can be used in other synthesis environments (like SuperCollider or Pd).
@@ -248,7 +246,9 @@
 
 - **[Audio Joiner](https://audio-joiner.com/)** 🆓 🌐 - Simple online tool for joining audio files.
 - **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
+- **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
+- **[The Audio Stuff Signal Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[Wavacity](https://wavacity.com/)** 🆓 🌐 - An online audio editor based on the Audacity codebase that runs in a web browser.
 
 ### 📶 Web Synthesizers & Instruments
