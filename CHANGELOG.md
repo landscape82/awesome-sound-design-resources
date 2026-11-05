@@ -2,8 +2,14 @@
 
 Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. An entry counts as new when both its name and its URL weren't in the list before (renamed, edited or moved entries aren't logged). Each block is timestamped (UTC) and lists the added lines verbatim.
 
-<!-- changelog-last-sha: e7c374cfb1090752391a4f9cda9960ca5b6a0501 -->
+<!-- changelog-last-sha: b6efc0994310ca009992d2a74f40ef23b90751cf -->
 <!-- changelog-entries-start -->
+## 2026-11-05 20:47 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/b6efc0994310ca009992d2a74f40ef23b90751cf
+
+- **[DailySounds](https://dailysounds.org/?ref=asdlist)** 🆓 🌐 - Free sound effects library for games, videos and podcasts, with commercial use allowed and credit optional.
+
 ## 2026-11-05 20:30 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/e7c374cfb1090752391a4f9cda9960ca5b6a0501
