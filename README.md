@@ -6,6 +6,8 @@
 
 > A curated list of awesome - mostly open source - resources and tools for audio synthesis, audio production, signal processing, sound design and music creation & generation.
 
+**🌐 Browse it as a website with search and filters: [landscape82.github.io/awesome-sound-design-resources](https://landscape82.github.io/awesome-sound-design-resources/)**
+
 **Legend:** 🆓 free / open source · 💰 paid, or free only with significant limits (demo, trial, non-commercial use, revenue cap) · 🖥️ desktop · 🌐 web · 📱 mobile — every entry has a price marker; platform markers are added to end-user applications (not libraries, languages or frameworks).
 
 ## Table of contents
@@ -132,6 +134,7 @@
 
 ## 📊 Analysis & Visualization
 
+- **[AudioLens](https://github.com/SimZhou/vscode-audiolens)** 🆓 🖥️ - VS Code audio viewer with multi-channel waveforms, spectrograms, and selection analysis for inspecting audio files and raw PCM.
 - **[BRP-PACU](https://github.com/matthew-dews/brp-pacu)** 🆓 🖥️ - Dual-channel FFT analysis tool for measuring and equalizing PA / sound systems (archived).
 - **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/)** 🆓 🖥️ - Real-time audio spectrum analyzer with high resolution.
