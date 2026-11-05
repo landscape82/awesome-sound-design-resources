@@ -514,3 +514,14 @@ svg.lucide {
 .tag-platforms > span {
   display: inline-flex;
 }
+
+.card.picked {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.rss {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
