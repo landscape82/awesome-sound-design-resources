@@ -2,8 +2,21 @@
 
 Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. An entry counts as new when both its name and its URL weren't in the list before (renamed, edited or moved entries aren't logged). Each block is timestamped (UTC) and lists the added lines verbatim.
 
-<!-- changelog-last-sha: 2af23ab3788c3af08c42453cc66650e16c2182bc -->
+<!-- changelog-last-sha: e7c374cfb1090752391a4f9cda9960ca5b6a0501 -->
 <!-- changelog-entries-start -->
+## 2026-11-05 20:30 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/e7c374cfb1090752391a4f9cda9960ca5b6a0501
+
+- **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
+- **[The Audio Stuff Signal Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
+
+## 2026-11-05 19:58 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/2c7b041e858a5edf158f447fb1f8f501ebe912f9
+
+- **[AudioLens](https://github.com/SimZhou/vscode-audiolens)** 🆓 🖥️ - VS Code audio viewer with multi-channel waveforms, spectrograms, and selection analysis for inspecting audio files and raw PCM.
+
 ## 2026-10-23 10:26 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/547e4eba6c6664fbdb567306a8ca5a9adc3db644

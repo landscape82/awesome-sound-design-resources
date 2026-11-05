@@ -6,6 +6,8 @@
 
 > A curated list of awesome - mostly open source - resources and tools for audio synthesis, audio production, signal processing, sound design and music creation & generation.
 
+**🌐 Browse it as a website with search and filters: [landscape82.github.io/awesome-sound-design-resources](https://landscape82.github.io/awesome-sound-design-resources/)**
+
 **Legend:** 🆓 free / open source · 💰 paid, or free only with significant limits (demo, trial, non-commercial use, revenue cap) · 🖥️ desktop · 🌐 web · 📱 mobile — every entry has a price marker; platform markers are added to end-user applications (not libraries, languages or frameworks).
 
 ## Table of contents
@@ -132,6 +134,7 @@
 
 ## 📊 Analysis & Visualization
 
+- **[AudioLens](https://github.com/SimZhou/vscode-audiolens)** 🆓 🖥️ - VS Code audio viewer with multi-channel waveforms, spectrograms, and selection analysis for inspecting audio files and raw PCM.
 - **[BRP-PACU](https://github.com/matthew-dews/brp-pacu)** 🆓 🖥️ - Dual-channel FFT analysis tool for measuring and equalizing PA / sound systems (archived).
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/)** 🆓 🖥️ - Real-time audio spectrum analyzer with high resolution.
 - **[Praat](https://www.fon.hum.uva.nl/praat/)** 🆓 🖥️ - Software for speech analysis in phonetics.
@@ -243,7 +246,9 @@
 
 - **[Audio Joiner](https://audio-joiner.com/)** 🆓 🌐 - Simple online tool for joining audio files.
 - **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
+- **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
+- **[The Audio Stuff Signal Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[Wavacity](https://wavacity.com/)** 🆓 🌐 - An online audio editor based on the Audacity codebase that runs in a web browser.
 
 ### 📶 Web Synthesizers & Instruments
