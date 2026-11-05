@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Add a resource yourself
+    url: https://github.com/landscape82/awesome-sound-design-resources/blob/main/CONTRIBUTING.md
+    about: Comfortable with pull requests? Add the entry to README.md directly - CONTRIBUTING.md explains the format.

@@ -20,10 +20,21 @@ Before opening a PR, you can run the same checks CI runs:
 npm install
 npm run validate    # entry format, price/platform markers, alphabetical order, duplicates, table of contents, issue form sections
 npm run lint:md     # markdownlint (including table-of-contents anchors)
+npm run export      # print the list as JSON (categories, entries, related lists), used by the website
 npm run lint:links  # markdown-link-check
 ```
 
 `npm run validate` and markdownlint must pass for a PR to be merged. On pull requests, CI also checks every link the PR adds. A weekly scheduled workflow checks all links, files an issue automatically if any are broken, and closes it again once they pass. New entries added on `main` are logged automatically to [CHANGELOG.md](CHANGELOG.md).
+
+## Website
+
+The list is also published as a website on GitHub Pages, generated from `README.md` - there's nothing extra to update when you add an entry. Newly added entries (from [CHANGELOG.md](CHANGELOG.md)) also appear in the site's RSS feed. The social preview image `site/public/og.png` is rendered from `site/og-image.html` (open it in a browser at 1200×630 and take a screenshot to update it). To preview it locally:
+
+```bash
+cd site
+npm install
+npm run dev
+```
 
 ## 🤝 Contributors
 

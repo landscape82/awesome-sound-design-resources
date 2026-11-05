@@ -5,6 +5,7 @@
   "description": "Tooling for linting and maintaining the Awesome Sound Design resources list.",
   "scripts": {
     "validate": "node .github/scripts/validate.mjs",
+    "export": "node .github/scripts/export.mjs",
     "lint:md": "markdownlint README.md CONTRIBUTING.md",
     "lint:links": "markdown-link-check README.md --config .markdown-link-check.json"
   },

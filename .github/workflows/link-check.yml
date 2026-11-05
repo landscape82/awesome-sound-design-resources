@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   link-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       broken: ${{ steps.link-check.outputs.broken }}
     steps:
@@ -35,6 +35,7 @@ jobs:
           set -e
           { grep -E '^[[:space:]]*\[✖\]' link-check-output.txt || true; } \
             | awk -F ' → ' '!seen[$1]++' > broken-links.txt
+          failed=$(wc -l < broken-links.txt | tr -d ' ')
           if [ -s broken-links.txt ]; then
             echo "Re-checking $(wc -l < broken-links.txt | tr -d ' ') failed link(s) with curl (3 attempts, 90s each):"
             cat broken-links.txt
@@ -58,7 +59,7 @@ jobs:
           fi
           broken=$(wc -l < broken-links.txt | tr -d ' ')
           echo "broken=${broken:-0}" >> "$GITHUB_OUTPUT"
-          if [ "$status" -ne 0 ] && [ "${broken:-0}" -eq 0 ]; then
+          if [ "$status" -ne 0 ] && [ "${failed:-0}" -eq 0 ]; then
             exit "$status"
           fi
           exit 0
@@ -142,7 +143,7 @@ jobs:
   badge:
     needs: link-check
     if: always() && needs.link-check.outputs.broken != ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     concurrency:
       group: repo-sync
       cancel-in-progress: false

@@ -1,10 +1,12 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Lint](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/lint.yml) [![Link Check](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml/badge.svg)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml)
 
-[![Broken Links](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/landscape82/awesome-sound-design-resources/main/.github/badges/broken-links.json)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml) [![List Entries](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/landscape82/awesome-sound-design-resources/main/.github/badges/entries.json)](README.md) [![Dependabot](https://img.shields.io/github/issues-search/landscape82/awesome-sound-design-resources?query=is%3Apr+is%3Aopen+label%3Adependencies&label=dependabot)](https://github.com/landscape82/awesome-sound-design-resources/pulls?q=is%3Apr+is%3Aopen+label%3Adependencies)
+[![Broken Links](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/landscape82/awesome-sound-design-resources/main/.github/badges/broken-links.json)](https://github.com/landscape82/awesome-sound-design-resources/actions/workflows/link-check.yml) [![Categories](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/landscape82/awesome-sound-design-resources/main/.github/badges/categories.json)](#table-of-contents) [![List Entries](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/landscape82/awesome-sound-design-resources/main/.github/badges/entries.json)](README.md) [![Dependabot](https://img.shields.io/github/issues-search/landscape82/awesome-sound-design-resources?query=is%3Apr+is%3Aopen+label%3Adependencies&label=dependabot)](https://github.com/landscape82/awesome-sound-design-resources/pulls?q=is%3Apr+is%3Aopen+label%3Adependencies)
 
 # 🎧 Awesome Sound Design resources
 
 > A curated list of awesome - mostly open source - resources and tools for audio synthesis, audio production, signal processing, sound design and music creation & generation.
+
+**🌐 Browse it as a website with search and filters: [landscape82.github.io/awesome-sound-design-resources](https://landscape82.github.io/awesome-sound-design-resources/)**
 
 **Legend:** 🆓 free / open source · 💰 paid, or free only with significant limits (demo, trial, non-commercial use, revenue cap) · 🖥️ desktop · 🌐 web · 📱 mobile — every entry has a price marker; platform markers are added to end-user applications (not libraries, languages or frameworks).
 
@@ -132,6 +134,7 @@
 
 ## 📊 Analysis & Visualization
 
+- **[AudioLens](https://github.com/SimZhou/vscode-audiolens)** 🆓 🖥️ - VS Code audio viewer with multi-channel waveforms, spectrograms, and selection analysis for inspecting audio files and raw PCM.
 - **[BRP-PACU](https://github.com/matthew-dews/brp-pacu)** 🆓 🖥️ - Dual-channel FFT analysis tool for measuring and equalizing PA / sound systems (archived).
 - **[jaaa](https://kokkinizita.linuxaudio.org/linuxaudio/)** 🆓 🖥️ - Real-time audio spectrum analyzer with high resolution.
 - **[Praat](https://www.fon.hum.uva.nl/praat/)** 🆓 🖥️ - Software for speech analysis in phonetics.
