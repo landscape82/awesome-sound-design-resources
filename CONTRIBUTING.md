@@ -5,7 +5,7 @@ Contributions are welcome!
 To add a new tool:
 
 1. Check that it's free or open source (preferred) and actively maintained — paid or freemium tools are welcome if they're notable for sound design, but must be marked with 💰 (see the legend at the top of the README)
-2. Add it to the appropriate category with a brief description, in alphabetical order within the section
+2. Add it to the appropriate category with a brief description, in alphabetical order within the section (case-insensitive, so `FindKeyBPM` comes before `FLAC`); browser-based tools (🌐) go under the Web-Based Tools subsections
 3. Follow the format: `**[Name](link)** 🆓 🖥️ - Description.` — a price marker (🆓 or 💰) is required; add platform markers (🖥️ 🌐 📱) for end-user applications (see the legend at the top of the README)
 4. Keep descriptions concise but informative
 5. Ensure the tool is actually useful for sound design
@@ -25,6 +25,8 @@ npm run lint:links  # markdown-link-check
 ```
 
 `npm run validate` and markdownlint must pass for a PR to be merged. On pull requests, CI also checks every link the PR adds. A weekly scheduled workflow checks all links, files an issue automatically if any are broken, and closes it again once they pass. New entries added on `main` are logged automatically to [CHANGELOG.md](CHANGELOG.md).
+
+If a PR fails these checks, maintainers may push small fixes (such as reordering, moving or renaming an entry) directly to your branch when "Allow edits by maintainers" is enabled, and will leave a comment explaining the change.
 
 ## Website
 
