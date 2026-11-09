@@ -245,6 +245,7 @@
 ### 📈 Online Analysis & Utilities
 
 - **[Audio Joiner](https://audio-joiner.com/)** 🆓 🌐 - Simple online tool for joining audio files.
+- **[ConvertirAudioAmp3](https://convertiraudioamp3.com/)** 🆓 🌐 - Free online audio-to-MP3 converter with trimming, mixing, and compression tools; no signup required, files processed on the server.
 - **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
 - **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
