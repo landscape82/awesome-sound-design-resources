@@ -2,8 +2,14 @@
 
 Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. An entry counts as new when both its name and its URL weren't in the list before (renamed, edited or moved entries aren't logged). Each block is timestamped (UTC) and lists the added lines verbatim.
 
-<!-- changelog-last-sha: 5d267d706627dae2675c5325fe8fe6fb6cd4f621 -->
+<!-- changelog-last-sha: 704b182aa2945faccc803436d3fecd3953c2856f -->
 <!-- changelog-entries-start -->
+## 2026-11-09 16:01 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/704b182aa2945faccc803436d3fecd3953c2856f
+
+- **[Saturalabs Audio Waveform Viewer](https://www.saturalabs.com/audio-waveform-viewer)** 🆓 🌐 - Inspect short MP3 or WAV waveforms locally and export a static SVG or PNG image.
+
 ## 2026-11-09 15:52 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/5d267d706627dae2675c5325fe8fe6fb6cd4f621
