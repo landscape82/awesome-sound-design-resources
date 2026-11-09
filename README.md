@@ -249,6 +249,7 @@
 - **[FindKeyBPM](https://findkeybpm.com/)** 🆓 🌐 - Browser-based key and BPM analyzer with Camelot codes; files are analyzed locally and never uploaded.
 - **[FLAC & Hi-Res Audio Checker](https://theaudiostuff.com/tools/hires-audio-checker/)** 🆓 🌐 - Browser-based FFT spectrum view of an audio file that shows where the frequency content stops and whether a sharp cutoff or lossy source is visible.
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
+- **[Saturalabs Audio Waveform Viewer](https://www.saturalabs.com/audio-waveform-viewer)** 🆓 🌐 - Inspect short MP3 or WAV waveforms locally and export a static SVG or PNG image.
 - **[The Audio Stuff Signal Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[Wavacity](https://wavacity.com/)** 🆓 🌐 - An online audio editor based on the Audacity codebase that runs in a web browser.
 
