@@ -2,8 +2,14 @@
 
 Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. An entry counts as new when both its name and its URL weren't in the list before (renamed, edited or moved entries aren't logged). Each block is timestamped (UTC) and lists the added lines verbatim.
 
-<!-- changelog-last-sha: b6efc0994310ca009992d2a74f40ef23b90751cf -->
+<!-- changelog-last-sha: 5d267d706627dae2675c5325fe8fe6fb6cd4f621 -->
 <!-- changelog-entries-start -->
+## 2026-11-09 15:52 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/5d267d706627dae2675c5325fe8fe6fb6cd4f621
+
+- **[WaveStack](https://wavestack.app/)** 💰 🖥️ 📱 - Wavetable editor for drawing, building and importing 1D and 2D tables, with export presets for synths and modules such as Serum, Vital, Deluge and Disting NT; free to use, with an optional paid Pro upgrade for 3D volumes and plugins.
+
 ## 2026-11-05 20:47 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/b6efc0994310ca009992d2a74f40ef23b90751cf

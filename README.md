@@ -124,6 +124,7 @@
 - **[Kwave](https://apps.kde.org/kwave/)** 🆓 🖥️ - Sound editor designed for the KDE desktop environment.
 - **[Ocenaudio](https://www.ocenaudio.com/)** 🆓 🖥️ - Fast audio editor optimized for large files.
 - **[SoX - Sound eXchange](https://sox.sourceforge.net/)** 🆓 🖥️ - Command-line audio processing toolkit for format conversion and effects.
+- **[WaveStack](https://wavestack.app/)** 💰 🖥️ 📱 - Wavetable editor for drawing, building and importing 1D and 2D tables, with export presets for synths and modules such as Serum, Vital, Deluge and Disting NT; free to use, with an optional paid Pro upgrade for 3D volumes and plugins.
 
 ## 🌲 Field Recording & Capture
 
