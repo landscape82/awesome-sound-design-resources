@@ -132,6 +132,7 @@
 - **[BirdNET](https://birdnet.cornell.edu/)** 🆓 📱 🌐 - Machine-learning tool for identifying bird species in field recordings.
 - **[BWF MetaEdit](https://mediaarea.net/BWFMetaEdit)** 🆓 🖥️ - Open-source editor for embedding, validating and exporting Broadcast WAV metadata in recordings.
 - **[radio aporee ::: maps](https://aporee.org/maps/)** 🆓 🌐 - Global sound map of field recordings, open for listening and contributing.
+- **[Sounds of the Adriatic](https://sound.marespot.com/)** 🆓 🌐 - Dark sound map of the Croatian coast: tap a pin to play free CC0/CC-BY field recordings (creator + license on every pin).
 
 ## 📊 Analysis & Visualization
 
