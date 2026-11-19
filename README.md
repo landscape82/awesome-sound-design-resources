@@ -258,6 +258,7 @@
 - **[BFXR](https://www.bfxr.net/)** 🆓 🌐 🖥️ - Sound effect generator (a fork of SFXR) with an interface for creating a wide range of procedural sound effects.
 - **[Gibber](https://gibber.cc/)** 🆓 🌐 - Live coding environment for audio and graphics in the browser.
 - **[p5.sound](https://p5js.org/reference/#/libraries/p5.sound)** 🆓 - Audio library for creative coding in the browser.
+- **[SoundTool](https://soundtool.tools)** 🆓 🌐 - Free browser-based virtual instruments (piano, drums, bass, beat maker) and audio utilities, in 14 languages.
 - **[Tone.js](https://tonejs.github.io/)** 🆓 - Web Audio framework for creating interactive music in the browser.
 - **[VolcaShare](https://volcashare.com/)** 🆓 🌐 - Online patch-sharing tool with browser emulators of the KORG Volca Bass and Volca Keys.
 - **[Web Audio Modules](https://www.webaudiomodules.org/)** 🆓 - Plugin standard for web-based audio applications.
