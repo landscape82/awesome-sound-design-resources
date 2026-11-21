@@ -240,6 +240,7 @@
 - **[Audiotool](https://www.audiotool.com/)** 🆓 🌐 - A collaborative, browser-based music production studio with modular routing.
 - **[BandLab](https://www.bandlab.com/)** 🆓 🌐 📱 - Free online DAW with collaboration features.
 - **[Chrome Music Lab](https://musiclab.chromeexperiments.com/)** 🆓 🌐 - Collection of web-based music experiments and tools.
+- **[Punchline Rap Beat Maker](https://punchline.fm/rap-beat-maker)** 🆓 🌐 - Browser-based 16-step drum sequencer with six synthesized sounds, rap presets, adjustable tempo, and WAV export.
 - **[Soundtrap](https://www.soundtrap.com/)** 💰 🌐 - Collaborative online music studio (freemium with open source components).
 - **[TwistedWave Online](https://twistedwave.com/online)** 💰 🌐 - Browser-based audio editor with professional features.
 
