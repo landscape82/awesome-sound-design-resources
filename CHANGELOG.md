@@ -2,8 +2,14 @@
 
 Entries below are appended automatically by the `readme-sync.yml` workflow whenever a merge to `main` adds new resources to `README.md`. An entry counts as new when both its name and its URL weren't in the list before (renamed, edited or moved entries aren't logged). Each block is timestamped (UTC) and lists the added lines verbatim.
 
-<!-- changelog-last-sha: a60cc034d450594f2cbd9c32b5ec49ec27c7d2d6 -->
+<!-- changelog-last-sha: 50b6152d734b6f78f1e2ca4bb1ad5d0d64cf7db5 -->
 <!-- changelog-entries-start -->
+## 2026-11-25 14:53 UTC
+
+Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/50b6152d734b6f78f1e2ca4bb1ad5d0d64cf7db5
+
+- **[SoundTool](https://soundtool.tools)** 🆓 🌐 - Free browser-based virtual instruments (piano, drums, bass, beat maker) and audio utilities, in 14 languages.
+
 ## 2026-11-25 14:11 UTC
 
 Commit: https://github.com/landscape82/awesome-sound-design-resources/commit/a60cc034d450594f2cbd9c32b5ec49ec27c7d2d6
