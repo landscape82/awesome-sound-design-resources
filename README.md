@@ -257,6 +257,7 @@
 ### 📶 Web Synthesizers & Instruments
 
 - **[BFXR](https://www.bfxr.net/)** 🆓 🌐 🖥️ - Sound effect generator (a fork of SFXR) with an interface for creating a wide range of procedural sound effects.
+- **[BrowserTones](https://browsertones.com/)** 🆓 🌐 - Shape the sound of a live guitar with a virtual amp, cabinet and effects by describing a tone in words.
 - **[Gibber](https://gibber.cc/)** 🆓 🌐 - Live coding environment for audio and graphics in the browser.
 - **[p5.sound](https://p5js.org/reference/#/libraries/p5.sound)** 🆓 - Audio library for creative coding in the browser.
 - **[SoundTool](https://soundtool.tools)** 🆓 🌐 - Free browser-based virtual instruments (piano, drums, bass, beat maker) and audio utilities, in 14 languages.
