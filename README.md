@@ -251,6 +251,7 @@
 - **[Online Tone Generator](https://onlinetonegenerator.com/)** 🆓 🌐 - Web-based tone and noise generator.
 - **[Plastic MP3 to MIDI](https://plastic.audio/mp3-to-midi/)** 🆓 🌐 - Browser-based audio-to-MIDI converter using Spotify's Basic Pitch model, with a piano-roll preview; files are processed locally and never uploaded.
 - **[Saturalabs Audio Waveform Viewer](https://www.saturalabs.com/audio-waveform-viewer)** 🆓 🌐 - Inspect short MP3 or WAV waveforms locally and export a static SVG or PNG image.
+- **[SpeakerEject Surround Sound Test](https://speakereject.com/surround-sound-test/)** 🆓 🌐 - Free 5.1 and 7.1 tone and spoken-channel files for checking output routing on compatible playback systems.
 - **[The Audio Stuff Signal Generator](https://theaudiostuff.com/tools/signal-generator/)** 🆓 🌐 - Browser-based test signal generator for sine, square, triangle and sawtooth tones, white, pink, brown, blue and violet noise, frequency sweeps, and channel and polarity checks.
 - **[Wavacity](https://wavacity.com/)** 🆓 🌐 - An online audio editor based on the Audacity codebase that runs in a web browser.
 
